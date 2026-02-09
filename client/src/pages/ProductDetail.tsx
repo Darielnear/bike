@@ -72,7 +72,7 @@ export default function ProductDetail() {
           </div>
           <h1 className="font-display text-4xl md:text-5xl font-bold mb-6 text-foreground">{product.name}</h1>
           
-          <div className="text-3xl font-bold text-foreground mb-8 flex items-center gap-4">
+          <div className="text-3xl font-bold text-foreground mb-4 flex items-center gap-4">
             {formatCurrency(Number(product.price))}
             {product.originalPrice && (
               <span className="text-xl text-muted-foreground line-through font-normal">
@@ -81,8 +81,10 @@ export default function ProductDetail() {
             )}
           </div>
 
-          <div className="prose prose-lg text-muted-foreground mb-10 max-w-none">
-            <p>{product.fullDescription || product.shortDescription}</p>
+          <div className="bg-secondary/20 p-4 rounded-lg mb-8 border-l-4 border-primary">
+            <p className="text-sm font-medium text-foreground leading-relaxed italic">
+              "{product.shortDescription}"
+            </p>
           </div>
 
           {/* Specs Grid */}
@@ -102,28 +104,41 @@ export default function ProductDetail() {
           </div>
 
           {/* Add to Cart Actions */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-10">
-            <div className="flex items-center border border-border rounded h-14 w-full sm:w-32 px-4">
-              <button 
-                onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="p-2 hover:text-primary transition-colors"
-              >
-                <Minus className="w-4 h-4" />
-              </button>
-              <span className="flex-1 text-center font-bold">{quantity}</span>
-              <button 
-                onClick={() => setQuantity(quantity + 1)}
-                className="p-2 hover:text-primary transition-colors"
-              >
-                <Plus className="w-4 h-4" />
-              </button>
+          <div className="sticky bottom-6 z-20 mt-12 lg:relative lg:bottom-0 lg:mt-0">
+            <div className="bg-white/80 backdrop-blur-md p-4 rounded-2xl shadow-2xl border border-border lg:bg-transparent lg:p-0 lg:shadow-none lg:border-0 lg:backdrop-blur-none">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex items-center border border-border bg-white rounded-xl h-14 w-full sm:w-32 px-4 shadow-sm">
+                  <button 
+                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                    className="p-2 hover:text-primary transition-colors"
+                  >
+                    <Minus className="w-4 h-4" />
+                  </button>
+                  <span className="flex-1 text-center font-bold">{quantity}</span>
+                  <button 
+                    onClick={() => setQuantity(quantity + 1)}
+                    className="p-2 hover:text-primary transition-colors"
+                  >
+                    <Plus className="w-4 h-4" />
+                  </button>
+                </div>
+                <button 
+                  onClick={handleAddToCart}
+                  className="flex-1 btn-primary h-14 flex items-center justify-center gap-2 text-base shadow-lg hover:shadow-primary/20 transition-all active:scale-[0.98]"
+                >
+                  <ShoppingBag className="w-5 h-5" /> Acquista Ora — {formatCurrency(Number(product.price) * quantity)}
+                </button>
+              </div>
             </div>
-            <button 
-              onClick={handleAddToCart}
-              className="flex-1 btn-primary h-14 flex items-center justify-center gap-2 text-base"
-            >
-              <ShoppingBag className="w-5 h-5" /> Aggiungi al Carrello
-            </button>
+          </div>
+
+          <div className="mt-12 pt-12 border-t border-border">
+            <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+              <ShieldCheck className="w-5 h-5 text-primary" /> Descrizione Completa
+            </h3>
+            <div className="prose prose-slate max-w-none text-muted-foreground leading-relaxed">
+              <p className="whitespace-pre-line">{product.fullDescription}</p>
+            </div>
           </div>
 
           {/* Trust points */}

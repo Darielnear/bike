@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import type { Product } from "@shared/schema";
 import { formatCurrency } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
-import { ShoppingBag, ArrowRight } from "lucide-react";
+import { ShoppingBag, ArrowRight, Zap, ShieldCheck } from "lucide-react";
 import { useCart } from "@/hooks/use-cart";
 import { useToast } from "@/hooks/use-toast";
 import { motion } from "framer-motion";
@@ -65,11 +65,20 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
         
         <Link href={`/prodotto/${product.slug}`} className="block group-hover:text-primary transition-colors">
-          <h3 className="font-display text-xl font-bold mb-2 leading-tight">{product.name}</h3>
+          <h3 className="font-display text-xl font-bold mb-3 leading-tight min-h-[3rem] line-clamp-2">{product.name}</h3>
         </Link>
         
-        <p className="text-muted-foreground text-sm line-clamp-2 mb-4 h-10">
-          {product.shortDescription}
+        <div className="flex items-center gap-4 mb-4 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+          <div className="flex items-center gap-1">
+            <Zap className="w-3 h-3 text-primary" /> {product.autonomy || 60}km
+          </div>
+          <div className="flex items-center gap-1">
+            <ShieldCheck className="w-3 h-3 text-primary" /> 2 Anni
+          </div>
+        </div>
+        
+        <p className="text-muted-foreground text-sm line-clamp-2 mb-6 min-h-[2.5rem] italic leading-relaxed">
+          "{product.shortDescription}"
         </p>
         
         <div className="flex items-end justify-between border-t border-border pt-4">
