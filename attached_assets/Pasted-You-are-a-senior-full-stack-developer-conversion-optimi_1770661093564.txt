@@ -1,0 +1,1819 @@
+You are a senior full-stack developer, conversion optimization specialist, and professional UI/UX designer.
+
+Build a HIGH-CONVERTING, production-ready e-commerce website for premium electric bicycles, exclusively for the Italian market.
+
+THIS MUST BE A COMPLETE, FUNCTIONAL WEB APPLICATION USING PHP, MySQL, HTML, CSS, AND JAVASCRIPT.
+
+===========================================
+TECH STACK (MANDATORY)
+===========================================
+
+Frontend:
+- HTML5 (semantic, accessible, SEO-optimized)
+- CSS3 (pure CSS, NO frameworks - FULLY RESPONSIVE, MOBILE-FIRST)
+- Vanilla JavaScript ES6+ (NO jQuery)
+
+Backend:
+- PHP 8.0+ (OOP style, PDO for database security)
+- MySQL 8.0+ (InnoDB engine, properly indexed)
+- Sessions (secure PHP sessions for cart and authentication)
+- PHPMailer (order confirmation emails)
+
+Payment Method:
+- ONLY Bonifico Bancario and Postepay (manual verification)
+- NO payment APIs (Stripe, PayPal, etc.)
+- Admin manually confirms payments
+
+===========================================
+CRITICAL REQUIREMENTS
+===========================================
+
+1. FULLY RESPONSIVE (Mobile-First Design)
+   - Works perfectly on: smartphones, tablets, laptops, desktops
+   - Breakpoints: 320px (mobile), 768px (tablet), 1024px (desktop)
+   - Touch-optimized for mobile (large tap targets, swipe gestures)
+   - All images responsive and optimized
+   - Hamburger menu on mobile
+   - NO horizontal scrolling on any device
+
+2. CONVERSION-OPTIMIZED
+   - Every element designed to maximize sales
+   - Clear CTAs (Call-to-Actions)
+   - Trust signals throughout
+   - Urgency and scarcity indicators
+   - Social proof (reviews, testimonials)
+   - Reduce friction in checkout process
+
+3. PROFESSIONAL E-COMMERCE QUALITY
+   - Clean, modern, premium design
+   - Fast loading times
+   - SEO optimized
+   - Secure (prepared statements, input validation)
+   - Production-ready code
+
+===========================================
+LANGUAGE & MARKET
+===========================================
+
+- 100% Italian language (no English)
+- Target audience: Italian customers only
+- Tone: Professional, trustworthy, warm, benefit-focused
+- Currency: EUR (€)
+- Format: Italian number format (1.299,00 €)
+
+===========================================
+PROJECT FILE STRUCTURE
+===========================================
+
+Create this EXACT folder structure:
+
+/
+├── index.php                           # Homepage
+├── .htaccess                           # URL rewriting, security headers
+├── config/
+│   ├── database.php                    # PDO MySQL connection
+│   ├── config.php                      # Site settings and constants
+│   └── session.php                     # Session management
+├── includes/
+│   ├── header.php                      # Site header (sticky navigation)
+│   ├── footer.php                      # Site footer
+│   └── functions.php                   # Helper functions (sanitize, format, etc.)
+├── pages/
+│   ├── e-bike-urbane.php               # Urban e-bikes category
+│   ├── e-bike-mountain.php             # Mountain e-bikes category
+│   ├── e-bike-pieghevoli.php           # Folding e-bikes category
+│   ├── prodotto.php                    # Single product detail page
+│   ├── carrello.php                    # Shopping cart
+│   ├── checkout.php                    # Checkout form
+│   ├── conferma-ordine.php             # Order confirmation with payment instructions
+│   ├── traccia-ordine.php              # Order tracking
+│   ├── chi-siamo.php                   # About us
+│   ├── assistenza.php                  # Customer support / FAQ
+│   ├── contatti.php                    # Contact page
+│   ├── privacy-policy.php              # Privacy policy
+│   └── condizioni-vendita.php          # Terms of sale
+├── admin/
+│   ├── index.php                       # Redirect to login
+│   ├── login.php                       # Admin login
+│   ├── dashboard.php                   # Admin dashboard (sales overview)
+│   ├── prodotti.php                    # Product management (list, add, edit, delete)
+│   ├── aggiungi-prodotto.php           # Add new product form
+│   ├── modifica-prodotto.php           # Edit product form
+│   ├── ordini.php                      # Order management
+│   ├── dettaglio-ordine.php            # Order detail view
+│   ├── recensioni.php                  # Review moderation
+│   ├── coupon.php                      # Discount code management
+│   ├── newsletter.php                  # Newsletter subscribers
+│   ├── impostazioni.php                # Site settings
+│   └── logout.php                      # Admin logout
+├── api/
+│   ├── add-to-cart.php                 # AJAX: Add product to cart
+│   ├── update-cart.php                 # AJAX: Update cart quantity
+│   ├── remove-from-cart.php            # AJAX: Remove item from cart
+│   ├── apply-coupon.php                # AJAX: Apply discount code
+│   ├── newsletter-signup.php           # AJAX: Newsletter subscription
+│   └── search.php                      # AJAX: Product search autocomplete
+├── assets/
+│   ├── css/
+│   │   ├── variables.css               # CSS custom properties (design system)
+│   │   ├── reset.css                   # CSS reset/normalize
+│   │   ├── typography.css              # Font styles and hierarchy
+│   │   ├── components.css              # Buttons, cards, forms, badges
+│   │   ├── layout.css                  # Grid, containers, spacing
+│   │   ├── header.css                  # Header and navigation styles
+│   │   ├── footer.css                  # Footer styles
+│   │   ├── homepage.css                # Homepage specific styles
+│   │   ├── product.css                 # Product page styles
+│   │   ├── cart.css                    # Cart page styles
+│   │   ├── checkout.css                # Checkout page styles
+│   │   ├── admin.css                   # Admin panel styles
+│   │   └── responsive.css              # Mobile-first media queries
+│   ├── js/
+│   │   ├── main.js                     # Core functionality (navigation, mobile menu)
+│   │   ├── cart.js                     # Cart functionality (add, update, remove)
+│   │   ├── product.js                  # Product page (gallery, add to cart)
+│   │   ├── checkout.js                 # Checkout form validation
+│   │   ├── animations.js               # Scroll animations, hover effects
+│   │   ├── search.js                   # Live search functionality
+│   │   └── admin.js                    # Admin panel interactions
+│   ├── images/
+│   │   ├── logo-placeholder.png        # Logo placeholder
+│   │   ├── hero-placeholder.jpg        # Hero section placeholder
+│   │   └── icons/                      # SVG icons (trust badges, features)
+│   └── uploads/
+│       └── products/                   # Product images (uploaded via admin)
+└── database.sql                        # Complete SQL schema
+
+===========================================
+DATABASE SCHEMA (MySQL)
+===========================================
+
+Create database.sql file with complete schema:
+
+DATABASE NAME: ebike_store
+CHARSET: utf8mb4
+COLLATION: utf8mb4_unicode_ci
+
+TABLES TO CREATE:
+
+1. products
+   - id (INT, AUTO_INCREMENT, PRIMARY KEY)
+   - name (VARCHAR 255, NOT NULL)
+   - slug (VARCHAR 255, UNIQUE, NOT NULL)
+   - category (ENUM: 'urbane', 'mountain', 'pieghevoli', NOT NULL)
+   - brand (VARCHAR 100)
+   - price (DECIMAL 10,2, NOT NULL)
+   - original_price (DECIMAL 10,2, NULL - for showing discounts)
+   - short_description (TEXT - max 200 chars for cards)
+   - full_description (TEXT - complete product description)
+   - autonomy (INT - battery range in km)
+   - motor (VARCHAR 100 - e.g., "Bosch Performance 250W")
+   - max_speed (INT - km/h, default 25)
+   - weight (DECIMAL 5,2 - in kg)
+   - warranty_years (INT, default 2)
+   - stock_quantity (INT, default 0)
+   - main_image (VARCHAR 255 - path to main product image)
+   - gallery_images (TEXT - JSON array of additional image paths)
+   - is_bestseller (BOOLEAN, default FALSE)
+   - is_featured (BOOLEAN, default FALSE)
+   - discount_percentage (INT, default 0)
+   - meta_title (VARCHAR 255 - SEO)
+   - meta_description (TEXT - SEO)
+   - views_count (INT, default 0)
+   - rating (DECIMAL 3,2, default 0)
+   - review_count (INT, default 0)
+   - status (ENUM: 'active', 'draft', 'out_of_stock', default 'active')
+   - created_at (TIMESTAMP, default CURRENT_TIMESTAMP)
+   - updated_at (TIMESTAMP, default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)
+   - Indexes: category, slug, is_bestseller, status
+
+2. orders
+   - id (INT, AUTO_INCREMENT, PRIMARY KEY)
+   - order_number (VARCHAR 20, UNIQUE, NOT NULL - format: ORD20250209001)
+   - customer_email (VARCHAR 255, NOT NULL)
+   - customer_name (VARCHAR 255, NOT NULL)
+   - customer_phone (VARCHAR 50)
+   - shipping_address (TEXT, NOT NULL - JSON: via, civico, città, cap, provincia)
+   - billing_address (TEXT, NULL - JSON, same format or NULL if same as shipping)
+   - subtotal (DECIMAL 10,2, NOT NULL)
+   - shipping_cost (DECIMAL 10,2, default 0)
+   - discount_amount (DECIMAL 10,2, default 0)
+   - total_amount (DECIMAL 10,2, NOT NULL)
+   - payment_method (ENUM: 'bonifico', 'postepay', NOT NULL)
+   - payment_status (ENUM: 'pending', 'completed', 'failed', default 'pending')
+   - payment_proof (VARCHAR 255, NULL - uploaded receipt filename)
+   - order_status (ENUM: 'pending_payment', 'paid', 'processing', 'shipped', 'delivered', 'cancelled', default 'pending_payment')
+   - tracking_number (VARCHAR 100, NULL)
+   - shipped_at (TIMESTAMP, NULL)
+   - delivered_at (TIMESTAMP, NULL)
+   - customer_notes (TEXT, NULL)
+   - admin_notes (TEXT, NULL)
+   - created_at (TIMESTAMP, default CURRENT_TIMESTAMP)
+   - updated_at (TIMESTAMP, default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)
+   - Indexes: order_number, customer_email, order_status, payment_status
+
+3. order_items
+   - id (INT, AUTO_INCREMENT, PRIMARY KEY)
+   - order_id (INT, NOT NULL, FOREIGN KEY references orders.id ON DELETE CASCADE)
+   - product_id (INT, NOT NULL, FOREIGN KEY references products.id)
+   - product_name (VARCHAR 255, NOT NULL)
+   - product_price (DECIMAL 10,2, NOT NULL)
+   - quantity (INT, NOT NULL)
+   - subtotal (DECIMAL 10,2, NOT NULL)
+   - Index: order_id
+
+4. reviews
+   - id (INT, AUTO_INCREMENT, PRIMARY KEY)
+   - product_id (INT, NOT NULL, FOREIGN KEY references products.id ON DELETE CASCADE)
+   - order_id (INT, NULL - for verified purchases)
+   - customer_name (VARCHAR 255, NOT NULL)
+   - customer_city (VARCHAR 100)
+   - customer_email (VARCHAR 255)
+   - rating (INT, NOT NULL, CHECK: between 1 and 5)
+   - title (VARCHAR 255)
+   - comment (TEXT, NOT NULL)
+   - verified_purchase (BOOLEAN, default FALSE)
+   - is_approved (BOOLEAN, default FALSE)
+   - helpful_count (INT, default 0)
+   - created_at (TIMESTAMP, default CURRENT_TIMESTAMP)
+   - Indexes: product_id, is_approved
+
+5. newsletter
+   - id (INT, AUTO_INCREMENT, PRIMARY KEY)
+   - email (VARCHAR 255, UNIQUE, NOT NULL)
+   - subscribed_at (TIMESTAMP, default CURRENT_TIMESTAMP)
+   - is_active (BOOLEAN, default TRUE)
+
+6. coupons
+   - id (INT, AUTO_INCREMENT, PRIMARY KEY)
+   - code (VARCHAR 50, UNIQUE, NOT NULL)
+   - discount_type (ENUM: 'percentage', 'fixed', NOT NULL)
+   - discount_value (DECIMAL 10,2, NOT NULL)
+   - min_order_amount (DECIMAL 10,2, default 0)
+   - max_uses (INT, NULL - unlimited if NULL)
+   - times_used (INT, default 0)
+   - valid_from (TIMESTAMP, default CURRENT_TIMESTAMP)
+   - valid_until (TIMESTAMP, NULL)
+   - is_active (BOOLEAN, default TRUE)
+
+7. admin_users
+   - id (INT, AUTO_INCREMENT, PRIMARY KEY)
+   - username (VARCHAR 50, UNIQUE, NOT NULL)
+   - email (VARCHAR 255, UNIQUE, NOT NULL)
+   - password_hash (VARCHAR 255, NOT NULL)
+   - role (ENUM: 'admin', 'manager', default 'manager')
+   - last_login (TIMESTAMP, NULL)
+   - created_at (TIMESTAMP, default CURRENT_TIMESTAMP)
+
+8. settings
+   - id (INT, AUTO_INCREMENT, PRIMARY KEY)
+   - setting_key (VARCHAR 100, UNIQUE, NOT NULL)
+   - setting_value (TEXT)
+   - updated_at (TIMESTAMP, default CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP)
+
+INSERT DEFAULT SETTINGS:
+- site_name: "E-Bike Premium Store"
+- site_email: "info@ebike-store.it"
+- site_phone: "800-123-456"
+- free_shipping_threshold: "500"
+- bonifico_iban: "IT60 X054 2811 1010 0000 0123 456"
+- bonifico_beneficiary: "Nome Azienda SRL"
+- postepay_number: "4023 6009 1234 5678"
+- postepay_holder: "Nome Azienda SRL"
+- payment_instructions: "Effettua il pagamento e invia la ricevuta a pagamenti@ebike-store.it"
+
+INSERT DEFAULT ADMIN:
+- username: "admin"
+- email: "admin@ebike-store.it"
+- password: "admin123" (hashed with password_hash())
+
+===========================================
+DESIGN SYSTEM (CSS VARIABLES)
+===========================================
+
+In assets/css/variables.css, define:
+
+COLORS:
+- --color-primary: #2ECC71 (green for CTAs, eco theme)
+- --color-primary-dark: #27AE60 (hover states)
+- --color-primary-light: #A8E6CF (backgrounds)
+- --color-background: #FFFFFF
+- --color-bg-secondary: #F8F9FA
+- --color-bg-dark: #1A1A1A
+- --color-text-primary: #1A1A1A
+- --color-text-secondary: #6B7280
+- --color-text-light: #9CA3AF
+- --color-border: #E5E7EB
+- --color-border-light: #F3F4F6
+- --color-accent-urgency: #FF6B35 (orange for scarcity)
+- --color-accent-trust: #3498DB (blue for security)
+- --color-success: #10B981
+- --color-error: #EF4444
+- --color-warning: #F59E0B
+
+TYPOGRAPHY:
+- --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif
+- Font sizes: 12px, 14px, 16px (base), 18px, 20px, 24px, 32px, 48px
+- Font weights: 400 (normal), 500 (medium), 600 (semibold), 700 (bold)
+- Line heights: 1.2 (headings), 1.6 (body), 1.8 (relaxed)
+
+SPACING:
+- 4px, 8px, 16px, 24px, 32px, 48px, 64px
+
+BORDER RADIUS:
+- Small: 4px, Medium: 8px, Large: 12px, XL: 16px, Full: 9999px
+
+SHADOWS:
+- Small: 0 1px 2px rgba(0,0,0,0.05)
+- Medium: 0 4px 6px rgba(0,0,0,0.07)
+- Large: 0 10px 15px rgba(0,0,0,0.1)
+- XL: 0 20px 25px rgba(0,0,0,0.15)
+
+TRANSITIONS:
+- Fast: 150ms ease-in-out
+- Base: 200ms ease-in-out
+- Slow: 300ms ease-in-out
+
+LAYOUT:
+- Container max-width: 1280px
+- Header height: 80px (desktop), 60px (mobile)
+
+===========================================
+RESPONSIVE BREAKPOINTS
+===========================================
+
+MOBILE FIRST approach - design for mobile, then enhance for larger screens
+
+Breakpoints:
+- Mobile: default (< 768px)
+- Tablet: 768px - 1023px
+- Desktop: 1024px+
+
+Media queries:
+@media (min-width: 768px) { /* Tablet styles */ }
+@media (min-width: 1024px) { /* Desktop styles */ }
+
+Guidelines:
+- Touch targets minimum 44x44px on mobile
+- Font sizes: increase 10-20% on desktop
+- Navigation: hamburger menu on mobile, horizontal on desktop
+- Product grid: 1 column mobile, 2 columns tablet, 3-4 columns desktop
+- Forms: full-width inputs mobile, optimized layout desktop
+- Images: responsive with srcset or object-fit
+- NO horizontal scrolling on any screen size
+
+===========================================
+HEADER (Sticky Navigation)
+===========================================
+
+DESKTOP VERSION (≥1024px):
+
+Structure:
+- Announcement bar (top, optional): "Spedizione GRATUITA sopra €500"
+- Main header (sticky):
+  - Left: Logo (linked to homepage)
+  - Center: Navigation menu
+  - Right: Search icon, Cart icon with count, Account icon
+
+Navigation menu items:
+- E-Bike Urbane (link to category)
+- E-Bike Mountain (link to category)
+- E-Bike Pieghevoli (link to category)
+- Offerte 🔥 (highlighted in orange)
+- Assistenza (link to support page)
+
+Search bar:
+- Icon button that opens search modal or inline search
+- Autocomplete suggestions with AJAX
+- Shows product image, name, price in dropdown
+
+Cart icon:
+- Shopping cart SVG icon
+- Badge with item count (if > 0)
+- On hover: mini cart preview (product thumbnails, prices, "Vai al carrello" button)
+
+Account icon:
+- User icon
+- Links to: Il mio account, Traccia ordine, Logout (if logged in)
+
+Sticky behavior:
+- Fixed position on scroll
+- Slight shadow appears when scrolled
+- Smooth show/hide based on scroll direction (optional)
+
+MOBILE VERSION (<768px):
+
+Structure:
+- Hamburger menu icon (top left)
+- Logo (center)
+- Cart icon with count badge (top right)
+
+Hamburger menu:
+- Opens slide-in drawer from left
+- Full-height overlay with semi-transparent backdrop
+- Menu items (vertical list)
+- Search bar at top of drawer
+- Account links at bottom
+- Close button (X icon) top right of drawer
+- Smooth CSS transition (transform: translateX)
+
+Mobile cart icon:
+- Always visible
+- Opens cart page on click
+
+===========================================
+HOMEPAGE STRUCTURE
+===========================================
+
+Build homepage with these sections in order:
+
+1. HERO SECTION (Full-width, above the fold)
+
+Design:
+- Full-width background image or video (Italian landscape with e-bike)
+- Dark overlay (40% opacity) for text contrast
+- Content centered vertically and horizontally
+
+Content:
+- Pre-headline (small, uppercase): "LA RIVOLUZIONE DELLA MOBILITÀ ELETTRICA"
+- H1 (large, bold): "Scopri la Libertà su Due Ruote Elettriche"
+- Subheadline: "Autonomia fino a 120km • Motori Bosch • Garanzia Italiana 3 anni"
+- Social proof: "Oltre 5.000 clienti soddisfatti in Italia 🇮🇹"
+
+CTAs (stacked):
+- Primary (green button, large): "SCOPRI I MODELLI ➜"
+- Secondary (outlined white button): "Calcola la tua e-bike ideale"
+- Small text link: "Finanziamento disponibile"
+
+Trust badges below:
+- "★★★★★ 4.8/5 da 1.247 recensioni"
+- Icons: "Garanzia 3 anni | Reso 30 giorni | Pagamenti sicuri"
+
+Mobile adjustments:
+- Smaller text sizes
+- Buttons full-width
+- Stack badges vertically
+
+2. TRUST BAR (Sticky on scroll - optional)
+
+Four icon blocks:
+- 🔋 "Autonomia fino a 120km"
+- ⚡ "Motori Bosch certificati"
+- ✅ "Garanzia italiana 3 anni"
+- 🚚 "Consegna e montaggio inclusi"
+
+Layout:
+- Desktop: 4 columns, horizontal
+- Mobile: 2x2 grid or vertical stack
+
+Hover effect: slight scale up
+
+3. URGENCY BANNER
+
+Orange background banner:
+- Text: "⏰ OFFERTA LIMITATA: 15% di sconto sui modelli 2024 • Ancora 48 ore"
+- Countdown timer (JavaScript)
+- CTA: "Approfitta ora"
+
+4. BEST SELLERS SECTION
+
+Title: "I Modelli Più Amati dai Nostri Clienti"
+
+Product grid:
+- Display 4-6 bestselling products
+- Desktop: 3-4 columns
+- Tablet: 2 columns
+- Mobile: 1 column (or horizontal scroll carousel)
+
+Product card design:
+- Product image (main_image from database)
+- "BESTSELLER" badge (top-left corner)
+- Product name (bold)
+- Star rating + review count: "★★★★★ (127)"
+- Price display:
+  - Original price struck through (if discount)
+  - Current price (large, green)
+  - Savings badge: "-15% • Risparmi 300€"
+- Key specs (icons):
+  - 🔋 Autonomy
+  - ⚡ Motor power
+  - ⚖️ Weight
+- Stock status:
+  - "Solo 3 disponibili" (orange) if stock < 10
+  - "✓ In magazzino" (green) if stock ≥ 10
+- CTA button (green): "AGGIUNGI AL CARRELLO"
+- Secondary link: "Vedi dettagli"
+
+Hover effect:
+- Card lifts (translateY -8px)
+- Shadow increases
+- Button color darkens
+
+5. VALUE PROPOSITION SECTION
+
+Layout:
+- Desktop: Image left (50%), content right (50%)
+- Mobile: Image top, content below (stacked)
+
+Image: Workshop/team photo or bike assembly
+
+Content:
+- Headline: "Perché Oltre 5.000 Italiani Ci Hanno Scelto"
+- Three benefits with checkmarks:
+  - "✓ Assistenza in Italiano, sempre disponibile"
+  - "✓ Manutenzione gratuita nel primo anno"
+  - "✓ Pezzi di ricambio garantiti per 10 anni"
+- CTA button: "La nostra storia"
+
+6. CUSTOMER REVIEWS CAROUSEL
+
+Title: "Cosa Dicono i Nostri Clienti"
+
+Review card structure:
+- Customer photo (circular)
+- Name + City: "Marco R., Milano"
+- Star rating (5 stars)
+- Verified badge: "✓ Acquisto verificato"
+- Review text (2-3 sentences, emotional)
+- Bike model purchased
+- Date
+
+Display:
+- Desktop: 3 reviews visible, carousel arrows
+- Mobile: 1 review, swipeable
+
+Auto-rotate every 5 seconds
+Manual controls (prev/next arrows)
+
+7. QUIZ SECTION (Lead Generation)
+
+Background: Light green or image background
+
+Content:
+- Title: "Non Sai Quale E-Bike Scegliere?"
+- Subtitle: "Rispondi a 4 domande e scopri il modello perfetto per te"
+- CTA button: "INIZIA IL QUIZ ➜"
+
+Quiz modal (opens on click):
+- 4 questions with visual options
+- Q1: "Dove la userai?" (Città/Montagna/Misto)
+- Q2: "Quanti km percorri?" (0-20/20-50/50+)
+- Q3: "Budget?" (price ranges)
+- Q4: "Priorità?" (Autonomia/Peso/Design/Prezzo)
+- Result: Recommended product + 10% discount code
+- CTA: "ACQUISTA ORA"
+
+8. EDUCATIONAL CONTENT
+
+Title: "Guida: Come Scegliere la Bici Elettrica Giusta"
+
+Three collapsible sections (accordion):
+- "Tipologie di e-bike e loro utilizzi"
+- "Come funziona il motore elettrico"
+- "Manutenzione e cura della batteria"
+
+Each section: 2-3 paragraphs helpful content
+
+CTA: "SCARICA LA GUIDA PDF" (email capture)
+
+9. GUARANTEE SECTION
+
+Centered, prominent:
+- Large shield icon
+- Headline: "30 GIORNI SODDISFATTO O RIMBORSATO"
+- Text: "Se non sei soddisfatto al 100%, ti rimborsiamo"
+- Trust seals: SSL, Italian warranty, secure payments
+
+10. INSTAGRAM FEED (optional)
+
+Title: "Seguici su Instagram @[brand]"
+- 6-image grid of customer photos
+- Hashtag: #MiaEbike
+- CTA: "Condividi la tua esperienza"
+
+===========================================
+CATEGORY PAGES
+===========================================
+
+URL structure:
+- /e-bike-urbane
+- /e-bike-mountain
+- /e-bike-pieghevoli
+
+Page structure:
+
+Header area:
+- Breadcrumbs: Home > E-Bike Urbane
+- Category title + count: "E-Bike Urbane (23 modelli)"
+- Short category description (1-2 sentences, SEO)
+- Sort dropdown: "Più venduti | Prezzo ↑ | Prezzo ↓ | Autonomia | Novità"
+
+Layout:
+- Desktop: Sidebar filters (left 25%), Product grid (right 75%)
+- Mobile: Filters in drawer (button "Filtri"), Full-width grid
+
+SIDEBAR FILTERS (sticky on desktop):
+
+Filter groups:
+1. Prezzo
+   - Range slider with min/max inputs
+   - Show current selection
+
+2. Autonomia
+   - Checkboxes:
+     - 0-40 km
+     - 40-80 km
+     - 80-120 km
+     - 120+ km
+
+3. Tipo Motore
+   - Checkboxes: Bosch, Shimano, Bafang, Altro
+
+4. Peso
+   - Range slider (15kg - 30kg)
+
+5. Marchio
+   - Checkboxes: unique brands from products
+
+6. Disponibilità
+   - Checkbox: "Solo disponibili"
+
+Buttons:
+- "Applica filtri" (green button)
+- "Cancella tutto" (text link)
+
+Active filters display:
+- Show applied filters as removable tags above products
+- "X" to remove each filter
+
+PRODUCT GRID:
+
+Products per page: 12
+Pagination at bottom
+
+Product card: Same design as homepage bestsellers
+
+Empty state:
+- If no products match filters: "Nessun prodotto trovato"
+- Suggestion: "Prova a modificare i filtri"
+
+Mobile filters:
+- "Filtri" button opens slide-in drawer
+- Same filter options
+- "Applica" button closes drawer and applies
+
+===========================================
+PRODUCT PAGE
+===========================================
+
+URL: /prodotto/[slug]
+
+Page layout: Single column, mobile-first
+
+BREADCRUMBS:
+Home > Category > Product Name
+
+ABOVE THE FOLD:
+
+LEFT SIDE (50% desktop, 100% mobile):
+
+Image Gallery:
+- Main large image (zoomable on click)
+- Thumbnail strip below (4-6 images)
+- Desktop: Thumbnails vertical on left
+- Mobile: Thumbnails horizontal below, swipeable
+- "360°" badge if available
+- Video thumbnail if available
+- Lightbox/modal for fullscreen view
+
+RIGHT SIDE (50% desktop, 100% mobile):
+
+Product header:
+- Product name (H1)
+- SKU/Model number (small text)
+- Share icons: WhatsApp, Facebook, Email
+
+Trust signals:
+- Star rating + review count (clickable, scrolls to reviews)
+- "✓ In magazzino - Spedizione in 24-48h" (green badge)
+- Views counter: "👁️ 47 persone stanno guardando"
+
+Price block:
+- Original price struck (if discount exists)
+- Current price (large, bold, green)
+- Savings: "Risparmi 250€ (-17%)"
+- Or: "Finanziamento da 45€/mese" (link to calculator)
+
+Key specs grid (6 items max):
+- 🔋 Autonomia: 100km
+- ⚡ Motore: Bosch Performance 250W
+- 🚴 Velocità max: 25 km/h
+- ⚖️ Peso: 24kg
+- 🛡️ Garanzia: 3 anni
+- 🔧 Manutenzione: Gratuita 1° anno
+
+Color/Size selector (if applicable):
+- Visual swatches with labels
+- Stock per variant
+
+Quantity selector:
+- Minus button, number input, plus button
+- Default: 1
+- Max: stock_quantity
+
+ADD TO CART section:
+- Large green button: "AGGIUNGI AL CARRELLO - €1.299"
+- AJAX add to cart (no page reload)
+- Success message appears
+- Mini cart updates in header
+
+Reassurance icons (below button):
+- 🔒 Pagamento sicuro
+- 🚚 Spedizione gratuita (if applicable)
+- ↩️ Reso 30 giorni
+
+Alternative actions:
+- ♥ Aggiungi ai preferiti
+- 🔔 Avvisami se cala il prezzo
+
+Urgency elements (conditional):
+- "⏰ 5 persone lo hanno aggiunto nelle ultime 2 ore"
+- "📦 Solo 7 pezzi disponibili" (if stock < 10)
+
+Trust box:
+- "Metodi di pagamento accettati:"
+- Icons: Bonifico, Postepay
+- Security badges
+
+BELOW THE FOLD:
+
+Tabbed content (or accordion on mobile):
+
+TAB 1: Descrizione
+- Full product description (from database)
+- Benefit-focused copy
+- Who is this for?
+- Use cases
+
+TAB 2: Scheda Tecnica
+- Table with all specifications:
+  - Motor details
+  - Battery capacity and type
+  - Frame material
+  - Brake type
+  - Gears
+  - Wheel size
+  - Display features
+  - Lights
+  - Weight capacity
+  - Dimensions
+- "Scarica PDF" button
+
+TAB 3: Utilizzo Consigliato
+- "Perfetta per:" scenarios
+- Terrain type
+- Daily distance recommendations
+
+TAB 4: Garanzia e Assistenza
+- Warranty coverage details
+- How to claim
+- Maintenance tips
+- Contact for support
+
+TAB 5: Recensioni Clienti (★★★★★)
+
+Review summary:
+- Average rating (large number + stars)
+- Rating distribution bars
+- Total review count
+
+Sort/filter:
+- "Più utili | Più recenti | Migliori | Peggiori"
+- Filter by stars
+
+Individual reviews:
+- Photo + Name + City
+- Stars + Verified badge
+- Date
+- Title (bold)
+- Comment text
+- Customer photos (if any)
+- "Utile? Sì (24) | No (2)" buttons
+
+Write review:
+- "Scrivi una recensione" button
+- Opens modal with form:
+  - Name, Email, City
+  - Star rating (clickable)
+  - Title
+  - Comment
+  - Photo upload (optional)
+- Incentive: "Ricevi 10€ sul prossimo acquisto!"
+
+TAB 6: Domande Frequenti
+- Product-specific FAQ
+- Accordion format
+- "Fai una domanda" form at bottom
+
+STICKY ADD TO CART BAR (mobile):
+- Appears after scrolling past main CTA
+- Mini product image + name
+- Price
+- "Aggiungi al carrello" button
+- Quantity selector
+- Follows user, fixed at bottom
+
+RELATED PRODUCTS:
+
+Section 1: "Clienti hanno acquistato anche"
+- 4 cross-sell products
+- Horizontal carousel
+- Same product card design
+
+Section 2: "Accessori consigliati"
+- Helmets, locks, lights, bags
+- Increase AOV (Average Order Value)
+
+===========================================
+SHOPPING CART PAGE
+===========================================
+
+URL: /carrello
+
+Layout: Desktop 70% cart / 30% summary, Mobile stacked
+
+CART ITEMS TABLE:
+
+Columns (desktop):
+- Product (image + name + specs summary)
+- Price (unit price)
+- Quantity (- | input | +)
+- Subtotal (auto-calculated)
+- Remove (X icon)
+
+Each row:
+- Product thumbnail (linked to product page)
+- Product name (linked)
+- Short specs: "Autonomia 100km, Motore Bosch"
+- Unit price
+- Quantity adjuster (AJAX update)
+- Subtotal for that item
+- Remove button (with confirmation)
+
+Mobile: Stack info vertically per product
+
+Empty cart state:
+- Icon/illustration
+- "Il tuo carrello è vuoto"
+- "Scopri i nostri modelli" button
+
+CART SUMMARY (sidebar or bottom on mobile):
+
+Calculations:
+- Subtotale: €X.XXX
+- Spedizione: €XX or "Gratuita"
+- Sconto: -€XX (if coupon applied)
+- TOTALE: €X.XXX (large, bold)
+
+Free shipping progress:
+- "Spendi altri €150 per la spedizione gratuita!"
+- Progress bar (visual)
+
+Promo code:
+- "Hai un codice sconto?"
+- Input field + "Applica" button (AJAX)
+- Success/error message
+- Show applied coupon with "Rimuovi" option
+
+Trust reassurance:
+- 🔒 Pagamento 100% sicuro
+- 🚚 Spedizione tracciata 24-48h
+- ↩️ Reso facile 30 giorni
+- 📞 Assistenza: 800-123-456 (clickable)
+
+Recently viewed (optional):
+- Small carousel of recently viewed products
+
+CTAs:
+- Primary (green, large): "PROCEDI AL CHECKOUT ➜"
+- Secondary (link): "Continua lo shopping"
+
+Cart abandonment:
+- "Salva per dopo" option on items
+- Exit-intent popup: "Aspetta! 10€ di sconto" (email capture)
+
+===========================================
+CHECKOUT PAGE
+===========================================
+
+URL: /checkout
+
+Must be logged in OR guest checkout available
+
+Progress indicator (top):
+1. Dati spedizione
+2. Riepilogo
+3. Pagamento
+
+Layout: Desktop 65% form / 35% summary, Mobile stacked
+
+GUEST CHECKOUT:
+- Prominent option: "Acquista come ospite"
+- Or: "Hai un account? Accedi"
+
+CHECKOUT FORM (left side):
+
+SECTION 1: Informazioni di contatto
+- Email (required, validation)
+- Checkbox: "Iscriviti per offerte esclusive"
+
+SECTION 2: Indirizzo di spedizione
+- Nome (required)
+- Cognome (required)
+- Indirizzo (autocomplete if possible)
+- Numero civico
+- Città (required)
+- CAP (Italian postal code, 5 digits, validation)
+- Provincia (dropdown, 2-letter codes)
+- Telefono (Italian format validation)
+- Note per la consegna (textarea, optional)
+
+Checkbox: "Indirizzo di fatturazione uguale"
+- If unchecked: show billing address fields (same structure)
+
+SECTION 3: Metodo di spedizione
+Radio buttons:
+- Standard (Gratuita sopra €500, altrimenti €20) - 3-5 giorni
+- Express (€35) - 24-48 ore
+
+SECTION 4: Metodo di pagamento
+
+Radio buttons:
+
+Option 1: 🏦 Bonifico Bancario
+- Explanation: "Riceverai le istruzioni via email"
+- Note: "L'ordine sarà processato dopo la ricezione del bonifico"
+
+Option 2: 💳 Postepay
+- Explanation: "Ricarica Postepay e invia ricevuta"
+- Note: "L'ordine sarà processato dopo verifica del pagamento"
+
+Form validation:
+- Real-time inline validation
+- Required fields marked with *
+- Error messages in red below fields
+- Success indicators (green checkmark)
+- Large touch-friendly inputs (mobile)
+
+ORDER SUMMARY (right sidebar, sticky):
+
+Products:
+- Mini card per product (thumbnail, name, qty, price)
+
+Calculations:
+- Subtotale: €X.XXX
+- Spedizione: €XX
+- Sconto: -€XX
+- TOTALE: €X.XXX (large, bold)
+
+Promo code:
+- Input + "Applica" button
+
+Trust elements:
+- SSL lock icon
+- "Dati protetti e crittografati"
+- Security badges
+- Testimonial quote (optional)
+
+FINAL CTA:
+- Huge green button: "CONFERMA ORDINE"
+- Loading spinner when clicked
+- Text below: "Confermando accetti Condizioni di vendita e Privacy Policy"
+
+Mobile:
+- Summary at top (or collapsible)
+- Form below
+- Sticky "Conferma" button at bottom
+
+===========================================
+ORDER CONFIRMATION PAGE
+===========================================
+
+URL: /conferma-ordine?order=[order_number]
+
+SUCCESS MESSAGE:
+- Large green checkmark icon
+- "✅ Ordine Confermato!"
+- "Grazie [Customer Name], il tuo ordine #12345 è stato ricevuto"
+
+ORDER STATUS:
+- Current: "⏳ In attesa di pagamento"
+- Timeline visualization (optional)
+
+PAYMENT INSTRUCTIONS BOX (highlighted, bordered):
+
+Title: "COME COMPLETARE IL PAGAMENTO"
+
+If BONIFICO selected:
+Display:
+- 🏦 BONIFICO BANCARIO
+- IBAN: IT60 X054 2811 1010... (from settings)
+- Beneficiario: Nome Azienda SRL (from settings)
+- Importo: €1.299,00 (exact amount, bold)
+- Causale: Ordine #12345 (MUST include)
+- Scadenza: Entro 7 giorni
+
+If POSTEPAY selected:
+Display:
+- 💳 RICARICA POSTEPAY
+- Numero carta: 4023 6009 1234 5678 (from settings)
+- Intestatario: Nome Azienda SRL (from settings)
+- Importo: €1.299,00 (exact amount, bold)
+- Causale: Ordine #12345
+
+Instructions:
+"1. Effettua il pagamento utilizzando i dati sopra
+2. Invia la ricevuta di pagamento a: pagamenti@ebike-store.it
+3. Riceverai conferma via email entro 24h dalla ricezione
+4. Spedizione entro 48h dalla conferma del pagamento"
+
+Warning:
+"⚠️ L'ordine sarà processato solo dopo la ricezione e verifica del pagamento (1-3 giorni lavorativi)"
+
+ORDER SUMMARY:
+
+Products ordered:
+- List with images, names, quantities, prices
+
+Shipping address
+Billing address (if different)
+Total breakdown
+
+NEXT STEPS:
+- Step-by-step guide (visual)
+- Expected timeline
+
+CALL-TO-ACTIONS:
+- "TRACCIA IL TUO ORDINE" button
+- "Contatta assistenza"
+- "Continua lo shopping"
+
+EMAIL SENT:
+- "📧 Conferma inviata a [email]"
+- "Controlla anche spam/promozioni"
+
+CONFIRMATION EMAIL (sent via PHPMailer):
+
+Subject: "Conferma Ordine #12345 - [Site Name]"
+
+Content (HTML formatted):
+- Friendly greeting
+- Order number + date
+- Products table (images, names, qty, prices)
+- Total amount
+- Payment instructions (IBAN or Postepay details)
+- Shipping address
+- Expected delivery after payment
+- Customer service contact
+- Footer links
+
+===========================================
+ADMIN PANEL
+===========================================
+
+URL: /admin (redirects to login if not authenticated)
+
+ADMIN LOGIN (/admin/login.php):
+- Clean login form (centered)
+- Username or Email field
+- Password field
+- "Ricordami" checkbox
+- "Accedi" button
+- "Password dimenticata?" link
+- Max 5 login attempts, then lockout
+- CSRF protection
+
+DASHBOARD (/admin/dashboard.php):
+
+Metrics cards (top):
+- Vendite oggi: €X.XXX
+- Vendite settimana: €X.XXX
+- Vendite mese: €X.XXX
+- Ordini in attesa: XX
+- Prodotti in esaurimento: XX (<5 stock)
+- Nuove recensioni: XX
+
+Charts:
+- Sales trend (last 30 days) - line chart
+- Best selling products - bar chart
+- Category revenue - pie chart
+
+Quick actions:
+- "Aggiungi prodotto" button
+- "Visualizza ordini" button
+- "Recensioni da approvare" button
+
+Recent orders table (last 10):
+- Order #, Date, Customer, Total, Status
+- Quick view/edit links
+
+PRODUCT MANAGEMENT (/admin/prodotti.php):
+
+Product list table:
+- Columns: Image, Name, Category, Price, Stock, Status, Actions
+- Search bar (name, SKU)
+- Filter dropdowns: Category, Status
+- "Aggiungi nuovo" button (top right)
+- Bulk actions: Delete selected, Change status
+- Pagination
+
+Actions per product:
+- Edit (pencil icon)
+- Delete (trash icon, with confirmation)
+- Quick status toggle
+
+ADD PRODUCT (/admin/aggiungi-prodotto.php):
+
+Form sections:
+
+Basic Info:
+- Name (required)
+- Slug (auto-generated from name, editable)
+- Category (dropdown: urbane, mountain, pieghevoli)
+- Brand
+
+Pricing:
+- Price (required)
+- Original price (for discounts)
+
+Descriptions:
+- Short description (max 200 chars, for cards)
+- Full description (WYSIWYG editor or textarea)
+
+Specifications:
+- Autonomy (km)
+- Motor (text)
+- Max speed (km/h, default 25)
+- Weight (kg)
+- Warranty (years, default 2)
+
+Images:
+- Main image (file upload)
+- Gallery images (multiple file upload)
+- Preview thumbnails
+- Drag to reorder
+
+Stock:
+- Quantity (number input)
+
+Marketing:
+- Bestseller (checkbox)
+- Featured (checkbox)
+- Discount percentage
+
+SEO:
+- Meta title
+- Meta description
+
+Status:
+- Active / Draft / Out of stock (radio)
+
+Buttons:
+- "Salva prodotto" (submit)
+- "Salva come bozza"
+- "Annulla" (back to list)
+
+Validation:
+- Required fields highlighted
+- Format checks
+- Image size/type validation
+
+EDIT PRODUCT (/admin/modifica-prodotto.php?id=X):
+- Same form as add, pre-filled with product data
+- "Aggiorna prodotto" button
+
+ORDER MANAGEMENT (/admin/ordini.php):
+
+Order list table:
+- Columns: Order #, Date, Customer, Total, Payment, Status, Actions
+- Filters:
+  - Date range picker
+  - Payment status (pending, completed)
+  - Order status (all statuses)
+  - Payment method
+- Search: Order #, customer email/name
+- Export to CSV button
+- Pagination
+
+Status badges (color-coded):
+- Pending payment: orange
+- Paid: green
+- Processing: blue
+- Shipped: purple
+- Delivered: dark green
+- Cancelled: red
+
+Actions per order:
+- View details (eye icon)
+- Quick status update (dropdown)
+
+ORDER DETAIL (/admin/dettaglio-ordine.php?id=X):
+
+Order information:
+- Order number (large)
+- Date and time
+- Current status with timeline
+
+Customer info:
+- Name, Email, Phone
+- Shipping address (formatted)
+- Billing address (if different)
+
+Products ordered:
+- Table: Image, Name, Price, Qty, Subtotal
+
+Payment info:
+- Method (Bonifico/Postepay)
+- Payment status
+- If completed: date received
+- Payment proof (view uploaded receipt if any)
+
+Calculations:
+- Subtotal, Shipping, Discount, Total
+
+Actions available:
+- Update order status (dropdown + save)
+- Mark payment as received button
+  - Opens modal to upload receipt or just mark
+  - Sends confirmation email to customer
+- Add tracking number (input + save)
+  - Sends shipping email
+- Print invoice button
+- Print packing slip button
+- Add admin notes (textarea)
+
+Customer notes (if any)
+Admin notes (internal, editable)
+
+Timeline:
+- Order created: [date time]
+- Payment received: [date time]
+- Order shipped: [date time]
+- Order delivered: [date time]
+
+REVIEW MANAGEMENT (/admin/recensioni.php):
+
+Review list:
+- Filters: Pending, Approved, All
+- Pending highlighted (yellow background)
+
+Table columns:
+- Product (image + name)
+- Customer (name + city)
+- Rating (stars)
+- Date
+- Status
+- Actions
+
+Actions per review:
+- View full review (modal or detail page)
+- Approve (checkmark icon)
+- Reject/Delete (X icon)
+
+Review detail modal:
+- Full review text
+- Customer info
+- Product link
+- Approve/Reject buttons
+- Reply option (admin response, shown publicly)
+
+COUPON MANAGEMENT (/admin/coupon.php):
+
+Coupon list:
+- Table: Code, Type, Value, Min order, Uses, Valid until, Status
+- "Crea nuovo" button
+
+Create/Edit coupon form:
+- Code (uppercase, unique)
+- Discount type (percentage/fixed, radio)
+- Discount value
+- Min order amount (optional)
+- Max uses (null = unlimited)
+- Valid from (date picker)
+- Valid until (date picker)
+- Active (toggle)
+
+Save button
+
+NEWSLETTER (/admin/newsletter.php):
+
+Subscriber list:
+- Email, Date subscribed, Status
+- Export to CSV
+- Bulk actions: Delete, Deactivate
+
+SETTINGS (/admin/impostazioni.php):
+
+Tabs:
+
+GENERAL:
+- Site name
+- Contact email
+- Phone number
+- Address (optional)
+
+SHIPPING:
+- Free shipping threshold
+- Standard shipping cost
+- Express shipping cost
+
+PAYMENT:
+- Bonifico IBAN
+- Bonifico beneficiary
+- Postepay card number
+- Postepay holder name
+- Payment instructions text
+
+EMAIL:
+- From email
+- From name
+- SMTP settings (if using external SMTP)
+- Enable/disable email notifications
+
+MAINTENANCE:
+- Maintenance mode (toggle)
+- Maintenance message
+
+Save buttons with success/error notifications
+
+ADMIN SIDEBAR NAVIGATION:
+- Dashboard
+- Prodotti
+- Ordini
+- Recensioni
+- Coupon
+- Newsletter
+- Impostazioni
+- Logout
+
+===========================================
+AJAX API ENDPOINTS
+===========================================
+
+All return JSON: {success: true/false, message: "", data: {}}
+
+/api/add-to-cart.php
+- POST: product_id, quantity
+- Validates: product exists, stock available
+- Updates: $_SESSION['cart']
+- Returns: cart_count, cart_total, message
+
+/api/update-cart.php
+- POST: product_id, quantity
+- Validates: stock
+- Updates: session
+- Returns: item_subtotal, cart_subtotal, cart_total
+
+/api/remove-from-cart.php
+- POST: product_id
+- Removes from session
+- Returns: cart_count, cart_total
+
+/api/apply-coupon.php
+- POST: coupon_code, cart_total
+- Validates: exists, active, not expired, min amount, uses left
+- Calculates: discount_amount
+- Stores: $_SESSION['coupon']
+- Returns: discount_amount, new_total, message
+
+/api/newsletter-signup.php
+- POST: email
+- Validates: format, not duplicate
+- Inserts: into newsletter table
+- Sends: welcome email
+- Returns: success, message
+
+/api/search.php
+- GET: q (query string)
+- Searches: product name, description
+- Returns: array of {id, name, slug, price, image, category}
+- Limit: 10 results
+
+Security for all APIs:
+- Validate and sanitize inputs
+- Use prepared statements
+- Check CSRF token (if implemented)
+- Return proper JSON headers
+- Log errors, don't expose to client
+
+===========================================
+CONVERSION OPTIMIZATION FEATURES
+===========================================
+
+Implement these features to maximize sales:
+
+1. EXIT-INTENT POPUP
+   - Triggers: Mouse moves toward browser top (desktop) or back button (mobile)
+   - Shows: Once per session
+   - Content: "Aspetta! 10€ di sconto sul tuo ordine"
+   - Email capture form
+   - Generates unique coupon
+   - Close button (X)
+
+2. STOCK SCARCITY
+   - Show "Solo X disponibili" when stock < 10
+   - Color: Orange
+   - Updates real-time
+
+3. SOCIAL PROOF NOTIFICATIONS
+   - Bottom corner popup
+   - "Marco da Roma ha ordinato [product]"
+   - Shows from recent orders (last 24h)
+   - Appears every 45-60 seconds
+   - Dismissable
+   - Fades in/out
+
+4. RECENTLY VIEWED
+   - Track in cookies
+   - Show on product pages
+   - "Visti di recente" carousel
+
+5. FREE SHIPPING PROGRESS
+   - Show in cart and header
+   - "Manca €150 per spedizione gratuita"
+   - Progress bar visual
+   - Updates as cart changes
+
+6. WISHLIST/FAVORITES
+   - Heart icon on products
+   - Save to localStorage or database
+   - "I tuoi preferiti" page
+
+7. TIME-LIMITED OFFERS
+   - Countdown timers (JavaScript)
+   - On banners and product pages
+   - Hides when expired
+
+8. TRUST BADGES
+   - Throughout site
+   - SSL, payment methods, guarantee
+   - Especially on product page and checkout
+
+===========================================
+SEO OPTIMIZATION
+===========================================
+
+CRITICAL for organic traffic:
+
+META TAGS (every page):
+
+Homepage:
+- Title: "E-Bike Elettriche Premium | Autonomia 120km | Garanzia 3 Anni"
+- Description: "Scopri le migliori bici elettriche in Italia. Motori Bosch, autonomia 120km, garanzia 3 anni. Spedizione gratuita sopra €500."
+
+Category:
+- Title: "E-Bike [Category] | [Count] Modelli | Spedizione Gratuita"
+- Description: "[Category] e-bike da €X. Autonomia fino a 120km, motori certificati. Garanzia italiana."
+
+Product:
+- Title: "[Product Name] - €[Price] | E-Bike [Category]"
+- Description: "[Short desc]. Autonomia [X]km, motore [X]. In stock, spedizione rapida."
+
+OPEN GRAPH (social sharing):
+- og:title, og:description, og:image, og:url
+- og:type: product (for products)
+- og:locale: it_IT
+
+SEMANTIC HTML:
+- One H1 per page
+- Proper heading hierarchy (H1 > H2 > H3)
+- Use <header>, <nav>, <main>, <article>, <section>, <footer>
+
+STRUCTURED DATA (JSON-LD):
+
+Organization (homepage):
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Site Name",
+  "url": "https://...",
+  "logo": "...",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+39-800-123-456",
+    "contactType": "Customer Service",
+    "areaServed": "IT"
+  }
+}
+
+Product (product pages):
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Product Name",
+  "image": ["..."],
+  "description": "...",
+  "sku": "...",
+  "brand": {"@type": "Brand", "name": "..."},
+  "offers": {
+    "@type": "Offer",
+    "url": "...",
+    "priceCurrency": "EUR",
+    "price": "1299.00",
+    "availability": "https://schema.org/InStock"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "127"
+  }
+}
+
+BreadcrumbList (all pages):
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [...]
+}
+
+CLEAN URLS (.htaccess):
+- Remove .php extensions
+- /e-bike-urbane not /pages/e-bike-urbane.php
+- /prodotto/slug not /prodotto.php?slug=...
+
+IMAGE OPTIMIZATION:
+- All images: descriptive alt text in Italian
+- Lazy loading: loading="lazy"
+- Responsive images: srcset
+- WebP format with fallback
+
+SITEMAP.XML:
+- Auto-generate or manual
+- Include all pages and products
+- Update on changes
+
+ROBOTS.TXT:
+- Allow: /
+- Disallow: /admin, /api, /config, /includes
+
+PAGE SPEED:
+- Minify CSS and JS
+- Combine files where possible
+- Defer non-critical JS
+- Enable gzip compression
+- Browser caching rules
+- Optimize images
+
+===========================================
+MOBILE RESPONSIVENESS (CRITICAL)
+===========================================
+
+MOBILE-FIRST APPROACH:
+- Design for mobile (320px+) first
+- Enhance for tablet (768px+)
+- Enhance for desktop (1024px+)
+
+RESPONSIVE GRID:
+- Mobile: 1 column
+- Tablet: 2 columns
+- Desktop: 3-4 columns
+
+TOUCH OPTIMIZATION:
+- Min tap target: 44x44px
+- Larger buttons on mobile
+- No hover-dependent functionality
+- Swipe gestures for galleries/carousels
+
+MOBILE NAVIGATION:
+- Hamburger menu
+- Slide-in drawer with overlay
+- Full-height, easy to navigate
+- Close on backdrop click or X button
+
+MOBILE FORMS:
+- Full-width inputs
+- Large text (16px min to prevent zoom)
+- Proper input types (email, tel, number)
+- Native keyboards triggered
+
+MOBILE IMAGES:
+- Smaller file sizes
+- Lazy loading
+- Responsive sizing
+
+MOBILE TYPOGRAPHY:
+- Base: 16px (prevents zoom)
+- Increase for desktop
+- Readable line lengths
+
+TEST ON:
+- iPhone (Safari)
+- Android (Chrome)
+- Tablet (iPad)
+- Ensure no horizontal scroll
+
+===========================================
+SECURITY MEASURES
+===========================================
+
+CRITICAL security implementations:
+
+1. SQL INJECTION PREVENTION:
+   - Use PDO prepared statements ALWAYS
+   - Never concatenate user input into queries
+
+2. XSS PREVENTION:
+   - Escape output: htmlspecialchars()
+   - Validate input types
+
+3. CSRF PROTECTION:
+   - Generate token in forms
+   - Validate on submission
+
+4. PASSWORD SECURITY:
+   - Use password_hash() (bcrypt)
+   - Never store plain text passwords
+
+5. SESSION SECURITY:
+   - Regenerate session ID on login
+   - Secure and HttpOnly flags
+   - Session timeout
+
+6. FILE UPLOAD SECURITY:
+   - Validate file types
+   - Check file size
+   - Rename uploaded files
+   - Store outside web root if possible
+
+7. HTTPS:
+   - Force HTTPS (redirect HTTP)
+   - Secure cookies
+
+8. INPUT VALIDATION:
+   - Server-side validation always
+   - Sanitize all inputs
+   - Type checking
+
+===========================================
+EMAIL FUNCTIONALITY
+===========================================
+
+Use PHPMailer for sending emails:
+
+ORDER CONFIRMATION EMAIL:
+- Subject: "Conferma Ordine #[number]"
+- Content: Order details, payment instructions, customer service info
+- HTML formatted, responsive
+
+PAYMENT RECEIVED EMAIL:
+- Subject: "Pagamento Ricevuto - Ordine #[number]"
+- Content: Payment confirmed, order being processed, expected shipping
+
+SHIPPING CONFIRMATION EMAIL:
+- Subject: "Il Tuo Ordine è Stato Spedito!"
+- Content: Tracking number, carrier, expected delivery
+
+NEWSLETTER WELCOME EMAIL:
+- Subject: "Benvenuto! Ecco il tuo sconto"
+- Content: Welcome message, discount code
+
+All emails:
+- Branded template (logo, colors)
+- Unsubscribe link (for newsletter)
+- Contact information
+- Mobile-responsive
+
+===========================================
+PERFORMANCE OPTIMIZATION
+===========================================
+
+TARGET METRICS:
+- Page load: < 3 seconds
+- Time to Interactive: < 4 seconds
+- First Contentful Paint: < 1.5 seconds
+
+OPTIMIZATIONS:
+- Minimize HTTP requests
+- Compress images (WebP, optimization)
+- Minify CSS/JS
+- Enable browser caching
+- Gzip compression
+- CDN for static assets (if budget allows)
+- Lazy load images
+- Defer non-critical JavaScript
+- Database query optimization (indexes)
+- Use CSS sprites for icons (or SVG)
+
+===========================================
+TESTING CHECKLIST
+===========================================
+
+Before launch, test:
+
+FUNCTIONALITY:
+- [ ] All pages load without errors
+- [ ] Navigation works (all links)
+- [ ] Product search works
+- [ ] Add to cart (AJAX)
+- [ ] Cart update/remove
+- [ ] Coupon application
+- [ ] Checkout form validation
+- [ ] Order placement
+- [ ] Order confirmation email sent
+- [ ] Admin login
+- [ ] Admin product CRUD
+- [ ] Admin order management
+- [ ] Admin payment confirmation
+
+RESPONSIVE:
+- [ ] Mobile (320px, 375px, 414px)
+- [ ] Tablet (768px, 1024px)
+- [ ] Desktop (1280px, 1920px)
+- [ ] No horizontal scroll
+- [ ] Touch targets adequate
+- [ ] Forms usable on mobile
+
+BROWSERS:
+- [ ] Chrome
+- [ ] Firefox
+- [ ] Safari
+- [ ] Edge
+- [ ] Mobile Safari (iOS)
+- [ ] Mobile Chrome (Android)
+
+SEO:
+- [ ] Meta tags present
+- [ ] Structured data valid
+- [ ] Sitemap generated
+- [ ] Robots.txt correct
+- [ ] Clean URLs working
+- [ ] Images have alt text
+
+PERFORMANCE:
+- [ ] Images optimized
+- [ ] CSS/JS minified
+- [ ] Caching enabled
+- [ ] Load time < 3s
+
+SECURITY:
+- [ ] HTTPS enabled
+- [ ] Forms use CSRF tokens
+- [ ] SQL injection tests pass
+- [ ] XSS tests pass
+- [ ] File uploads secure
+
+===========================================
+DOCUMENTATION TO INCLUDE
+===========================================
+
+Create README.md with:
+
+SETUP INSTRUCTIONS:
+1. Database setup (import database.sql)
+2. Config file setup (database credentials)
+3. Settings to configure (IBAN, Postepay, etc.)
+4. Default admin login
+5. File permissions needed
+
+FOLDER STRUCTURE explained
+
+HOW TO:
+- Add a product
+- Manage orders
+- Confirm payments
+- Add discount codes
+
+CUSTOMIZATION:
+- How to change colors (CSS variables)
+- How to update logo
+- How to modify payment instructions
+
+===========================================
+FINAL DELIVERABLES
+===========================================
+
+Provide:
+1. Complete PHP/MySQL codebase
+2. database.sql file
+3. All CSS files (organized)
+4. All JavaScript files
+5. Placeholder images
+6. README.md documentation
+7. .htaccess file
+
+Code quality:
+- Clean, readable code
+- Comments for complex logic
+- Consistent naming conventions
+- Organized file structure
+- No hardcoded values (use config)
+
+THIS WEBSITE MUST:
+✅ Be fully functional
+✅ Convert visitors to customers
+✅ Work perfectly on all devices
+✅ Be fast and secure
+✅ Be ready for production
+✅ Be easy to maintain
+
+Build this e-commerce platform to the highest professional standards.
