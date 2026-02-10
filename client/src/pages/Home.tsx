@@ -4,6 +4,8 @@ import { Link } from "wouter";
 import { ArrowRight, Battery, Bike, Wind } from "lucide-react";
 import { motion } from "framer-motion";
 import heroJpg from "@/assets/images/hero.jpg";
+import urbanJpg from "@/assets/images/urban.jpg";
+import accessoriesJpg from "@/assets/images/accessories.jpg";
 
 export default function Home() {
   const { data: featuredProducts } = useProducts({ featured: true });
@@ -99,7 +101,7 @@ export default function Home() {
             { 
               name: 'E-City & Urban', 
               slug: 'E-City & Urban', 
-              image: 'https://images.unsplash.com/photo-1594731802114-035422606296?q=80&w=1000&auto=format&fit=crop',
+              image: urbanJpg,
               desc: 'Città & Pieghevoli' 
             },
             { 
@@ -111,7 +113,7 @@ export default function Home() {
             { 
               name: 'Accessori', 
               slug: 'Accessori & Sicurezza', 
-              image: 'https://images.unsplash.com/photo-1511994298241-608e28f14f66?q=80&w=1000&auto=format&fit=crop',
+              image: accessoriesJpg,
               desc: 'Sicurezza & Manutenzione' 
             },
           ].map((cat) => (
