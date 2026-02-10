@@ -3,6 +3,7 @@ import { ProductCard } from "@/components/ProductCard";
 import { Link } from "wouter";
 import { ArrowRight, Battery, Bike, Wind } from "lucide-react";
 import { motion } from "framer-motion";
+import heroJpg from "@/assets/images/hero.jpg";
 
 export default function Home() {
   const { data: featuredProducts } = useProducts({ featured: true });
@@ -15,9 +16,9 @@ export default function Home() {
       <section className="relative h-[80vh] md:h-[90vh] flex items-center justify-center overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-black/40 z-10" />
+          <div className="absolute inset-0 bg-black/50 z-10" />
           <img 
-            src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=2070&auto=format&fit=crop" 
+            src={heroJpg} 
             alt="Hero E-Bike" 
             className="w-full h-full object-cover"
           />
@@ -37,7 +38,7 @@ export default function Home() {
               Scopri la <br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-orange-400">Libertà</span>
             </h1>
-            <p className="text-lg md:text-xl text-white/80 mb-10 max-w-lg font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-white mb-10 max-w-lg font-medium leading-relaxed drop-shadow-md">
               Esplora la città e la natura con la nostra nuova collezione di E-Bike premium. 
               Prestazioni eccezionali, stile inconfondibile.
             </p>
@@ -45,7 +46,7 @@ export default function Home() {
               <Link href="/prodotti" className="btn-primary text-center">
                 Acquista Ora
               </Link>
-              <Link href="/prodotti/E-City & Urban" className="px-6 py-3 rounded border border-white/30 hover:bg-white/10 backdrop-blur-sm text-center font-bold text-sm uppercase tracking-widest transition-all">
+              <Link href="/prodotti/E-City & Urban" className="px-6 py-3 rounded border border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-md text-center font-bold text-sm uppercase tracking-widest transition-all">
                 Scopri Urban
               </Link>
             </div>
@@ -98,28 +99,32 @@ export default function Home() {
             { 
               name: 'E-City & Urban', 
               slug: 'E-City & Urban', 
-              image: 'https://images.unsplash.com/photo-1595232938634-118501254356?q=80&w=1000&auto=format&fit=crop',
+              image: 'https://images.unsplash.com/photo-1594731802114-035422606296?q=80&w=1000&auto=format&fit=crop',
               desc: 'Città & Pieghevoli' 
             },
             { 
               name: 'Trekking & Gravel', 
               slug: 'Trekking & Gravel', 
-              image: 'https://images.unsplash.com/photo-1623999462524-7da3673c099b?q=80&w=1000&auto=format&fit=crop',
+              image: 'https://images.unsplash.com/photo-1444491741275-3747c53c99b4?q=80&w=1000&auto=format&fit=crop',
               desc: 'Avventura & Viaggi' 
             },
             { 
               name: 'Accessori', 
               slug: 'Accessori & Sicurezza', 
-              image: 'https://images.unsplash.com/photo-1593133675033-93c59271b844?q=80&w=1000&auto=format&fit=crop',
+              image: 'https://images.unsplash.com/photo-1511994298241-608e28f14f66?q=80&w=1000&auto=format&fit=crop',
               desc: 'Sicurezza & Manutenzione' 
             },
           ].map((cat) => (
             <Link key={cat.slug} href={`/prodotti/${cat.slug}`} className="group relative h-[400px] overflow-hidden rounded-xl">
-              <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors z-10" />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors z-10" />
               <img 
                 src={cat.image} 
                 alt={cat.name} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&w=1000&auto=format&fit=crop";
+                }}
               />
               <div className="absolute bottom-0 left-0 p-8 z-20 w-full">
                 <h3 className="text-white text-3xl font-display font-bold mb-2">{cat.name}</h3>
