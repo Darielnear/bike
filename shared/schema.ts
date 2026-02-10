@@ -9,16 +9,18 @@ export const products = pgTable("products", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   slug: text("slug").unique().notNull(),
-  category: text("category").notNull(), // 'urbane', 'mountain', 'pieghevoli'
+  category: text("category").notNull(), // 'E-MTB', 'E-City & Urban', 'Trekking & Gravel', 'Accessori & Sicurezza'
   brand: text("brand"),
   price: numeric("price", { precision: 10, scale: 2 }).notNull(),
   originalPrice: numeric("original_price", { precision: 10, scale: 2 }),
   shortDescription: text("short_description"),
   fullDescription: text("full_description"),
-  autonomy: integer("autonomy"), // km
-  motor: text("motor"),
+  descriptionDettagliata: text("descrizione_dettagliata"),
+  autonomy: integer("autonomy"), // autonomy_km
+  motor: text("motor"), // motore
+  batteriaWh: integer("batteria_wh"),
   maxSpeed: integer("max_speed").default(25),
-  weight: numeric("weight", { precision: 5, scale: 2 }),
+  weight: numeric("weight", { precision: 5, scale: 2 }), // peso_kg
   warrantyYears: integer("warranty_years").default(2),
   stockQuantity: integer("stock_quantity").default(0),
   mainImage: text("main_image").notNull(),

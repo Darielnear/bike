@@ -90,10 +90,10 @@ function Footer() {
         <div>
           <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Esplora</h4>
           <ul className="space-y-3 text-sm">
-            <li><a href="/prodotti/urbane" className="hover:text-white transition-colors">E-Bike Urbane</a></li>
-            <li><a href="/prodotti/mountain" className="hover:text-white transition-colors">E-Bike Mountain</a></li>
-            <li><a href="/prodotti/pieghevoli" className="hover:text-white transition-colors">E-Bike Pieghevoli</a></li>
-            <li><a href="/prodotti" className="hover:text-white transition-colors">Tutti i Modelli</a></li>
+            <li><a href="/prodotti/E-MTB" className="hover:text-white transition-colors">E-MTB</a></li>
+            <li><a href="/prodotti/E-City & Urban" className="hover:text-white transition-colors">E-City & Urban</a></li>
+            <li><a href="/prodotti/Trekking & Gravel" className="hover:text-white transition-colors">Trekking & Gravel</a></li>
+            <li><a href="/prodotti/Accessori & Sicurezza" className="hover:text-white transition-colors">Accessori & Sicurezza</a></li>
           </ul>
         </div>
 
