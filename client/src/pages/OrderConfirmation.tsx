@@ -74,14 +74,19 @@ export default function OrderConfirmation() {
                 <Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
-            <div className="flex justify-between items-center pt-2">
-              <span className="text-muted-foreground">C. Fiscale</span>
+            <div className="flex justify-between items-center pb-2 border-b border-border">
+              <span className="text-muted-foreground">Codice Fiscale</span>
               <span className="font-mono font-bold">VLNMR080A01H501Z</span>
+            </div>
+            <div className="flex justify-between items-center pt-2">
+              <span className="text-muted-foreground">Causale</span>
+              <span className="font-bold">Ricarica per Ordine #{orderNumber}</span>
             </div>
           </div>
         )}
 
         <p className="mt-6 text-sm text-center text-muted-foreground">
+          Una fattura HTML automatica è stata preparata e verrà inviata non appena il pagamento sarà convalidato.
           Invia la ricevuta a <span className="font-bold text-primary">pagamenti@ciclivolante.it</span> per accelerare la spedizione.
         </p>
       </div>

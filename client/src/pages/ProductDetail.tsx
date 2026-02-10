@@ -88,20 +88,32 @@ export default function ProductDetail() {
           </div>
 
           {/* Specs Grid */}
-          <div className="grid grid-cols-3 gap-4 mb-10 border-y border-border py-8">
-            <div className="text-center">
-              <span className="block text-2xl font-bold text-foreground mb-1">{product.autonomy || 60}km</span>
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">Autonomia</span>
+          {product.category !== 'Accessori & Sicurezza' && (
+            <div className="grid grid-cols-3 gap-4 mb-10 border-y border-border py-8">
+              <div className="text-center">
+                <span className="block text-2xl font-bold text-foreground mb-1">{product.autonomy || 60}km</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">Autonomia</span>
+              </div>
+              <div className="text-center border-l border-border px-4">
+                <span className="block text-2xl font-bold text-foreground mb-1">{product.batteriaWh || 500}Wh</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">Batteria</span>
+              </div>
+              <div className="text-center border-l border-border">
+                <span className="block text-xl font-bold text-foreground mb-1 truncate px-1">{product.motor || "250W"}</span>
+                <span className="text-xs uppercase tracking-widest text-muted-foreground">Motore</span>
+              </div>
             </div>
-            <div className="text-center border-l border-border px-4">
-              <span className="block text-2xl font-bold text-foreground mb-1">{product.maxSpeed || 25}km/h</span>
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">Velocità Max</span>
+          )}
+
+          {/* Detailed Description */}
+          {product.descriptionDettagliata && (
+            <div className="mb-10 p-6 bg-secondary/10 rounded-2xl border border-border">
+              <h3 className="text-sm font-bold uppercase tracking-widest mb-4">Specifiche Tecniche</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
+                {product.descriptionDettagliata}
+              </p>
             </div>
-            <div className="text-center border-l border-border">
-              <span className="block text-2xl font-bold text-foreground mb-1">{product.motor || "250W"}</span>
-              <span className="text-xs uppercase tracking-widest text-muted-foreground">Motore</span>
-            </div>
-          </div>
+          )}
 
           {/* Add to Cart Actions */}
           <div className="sticky bottom-6 z-20 mt-12 lg:relative lg:bottom-0 lg:mt-0">

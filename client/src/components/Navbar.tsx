@@ -52,9 +52,10 @@ export function Navbar() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/prodotti" className="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Tutte le Bici</Link>
-              <Link href="/prodotti/urbane" className="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Urbane</Link>
-              <Link href="/prodotti/mountain" className="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Mountain</Link>
-              <Link href="/prodotti/pieghevoli" className="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Pieghevoli</Link>
+              <Link href="/prodotti/E-MTB" className="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">E-MTB</Link>
+              <Link href="/prodotti/E-City & Urban" className="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">E-City & Urban</Link>
+              <Link href="/prodotti/Trekking & Gravel" className="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Trekking & Gravel</Link>
+              <Link href="/prodotti/Accessori & Sicurezza" className="text-sm font-semibold uppercase tracking-widest hover:text-primary transition-colors">Accessori</Link>
             </div>
 
             {/* Actions */}

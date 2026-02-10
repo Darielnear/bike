@@ -45,11 +45,36 @@ export default function Home() {
               <Link href="/prodotti" className="btn-primary text-center">
                 Acquista Ora
               </Link>
-              <Link href="/prodotti/urbane" className="px-6 py-3 rounded border border-white/30 hover:bg-white/10 backdrop-blur-sm text-center font-bold text-sm uppercase tracking-widest transition-all">
-                Scopri Urbane
+              <Link href="/prodotti/E-City & Urban" className="px-6 py-3 rounded border border-white/30 hover:bg-white/10 backdrop-blur-sm text-center font-bold text-sm uppercase tracking-widest transition-all">
+                Scopri Urban
               </Link>
             </div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Quick Finder Module */}
+      <section className="container-padding -mt-12 relative z-30 max-w-4xl mx-auto w-full">
+        <div className="bg-white rounded-2xl shadow-2xl p-6 md:p-8 border border-border flex flex-col md:flex-row items-end gap-6">
+          <div className="flex-1 w-full space-y-2">
+            <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Altezza (cm)</label>
+            <input 
+              type="number" 
+              placeholder="Es: 175" 
+              className="w-full h-12 px-4 rounded-xl border border-border focus:outline-none focus:ring-2 focus:ring-primary/20"
+            />
+          </div>
+          <div className="flex-1 w-full space-y-2">
+            <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Categoria</label>
+            <select className="w-full h-12 px-4 rounded-xl border border-border bg-white focus:outline-none focus:ring-2 focus:ring-primary/20">
+              <option value="E-MTB">E-MTB</option>
+              <option value="E-City & Urban">E-City & Urban</option>
+              <option value="Trekking & Gravel">Trekking & Gravel</option>
+            </select>
+          </div>
+          <Link href="/prodotti" className="btn-primary h-12 px-8 flex-none w-full md:w-auto flex items-center justify-center">
+            Trova e-bike
+          </Link>
         </div>
       </section>
 
@@ -62,25 +87,31 @@ export default function Home() {
           </Link>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             { 
-              name: 'Urbane', 
-              slug: 'urbane', 
-              image: 'https://images.unsplash.com/photo-1595232938634-118501254356?q=80&w=1000&auto=format&fit=crop',
-              desc: 'Per il pendolare moderno' 
-            },
-            { 
-              name: 'Mountain', 
-              slug: 'mountain', 
+              name: 'E-MTB', 
+              slug: 'E-MTB', 
               image: 'https://images.unsplash.com/photo-1544191696-102dbdaeeaa0?q=80&w=1000&auto=format&fit=crop',
-              desc: 'Domina ogni sentiero' 
+              desc: 'Performance & Montagna' 
             },
             { 
-              name: 'Pieghevoli', 
-              slug: 'pieghevoli', 
+              name: 'E-City & Urban', 
+              slug: 'E-City & Urban', 
+              image: 'https://images.unsplash.com/photo-1595232938634-118501254356?q=80&w=1000&auto=format&fit=crop',
+              desc: 'Città & Pieghevoli' 
+            },
+            { 
+              name: 'Trekking & Gravel', 
+              slug: 'Trekking & Gravel', 
               image: 'https://images.unsplash.com/photo-1623999462524-7da3673c099b?q=80&w=1000&auto=format&fit=crop',
-              desc: 'Compatte e versatili' 
+              desc: 'Avventura & Viaggi' 
+            },
+            { 
+              name: 'Accessori', 
+              slug: 'Accessori & Sicurezza', 
+              image: 'https://images.unsplash.com/photo-1593133675033-93c59271b844?q=80&w=1000&auto=format&fit=crop',
+              desc: 'Sicurezza & Manutenzione' 
             },
           ].map((cat) => (
             <Link key={cat.slug} href={`/prodotti/${cat.slug}`} className="group relative h-[400px] overflow-hidden rounded-xl">
