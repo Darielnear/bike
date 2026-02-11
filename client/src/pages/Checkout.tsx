@@ -20,7 +20,7 @@ const checkoutSchema = z.object({
   city: z.string().min(2, "Città richiesta"),
   zip: z.string().min(5, "CAP richiesto"),
   province: z.string().min(2, "Provincia richiesta"),
-  paymentMethod: z.enum(["bonifico", "postepay"]),
+  paymentMethod: z.literal("postepay"),
 });
 
 type CheckoutForm = z.infer<typeof checkoutSchema>;
@@ -33,7 +33,7 @@ export default function Checkout() {
   const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<CheckoutForm>({
     resolver: zodResolver(checkoutSchema),
     defaultValues: {
-      paymentMethod: "bonifico"
+      paymentMethod: "postepay"
     }
   });
 
@@ -176,24 +176,13 @@ export default function Checkout() {
             {/* Payment */}
             <div className="bg-card p-6 rounded-xl border border-border shadow-sm space-y-4">
               <h2 className="text-xl font-bold mb-4">Metodo di Pagamento</h2>
-              <RadioGroup 
-                defaultValue="bonifico" 
-                onValueChange={(val: "bonifico" | "postepay") => setValue("paymentMethod", val)}
-                className="grid gap-4"
-              >
-                <Label htmlFor="bonifico" className={`flex flex-col items-center justify-between rounded-xl border-2 p-4 hover:bg-secondary/50 cursor-pointer transition-all ${paymentMethod === 'bonifico' ? 'border-primary bg-secondary/30' : 'border-muted'}`}>
-                  <RadioGroupItem value="bonifico" id="bonifico" className="sr-only" />
-                  <Building className="mb-3 h-6 w-6" />
-                  <span className="font-bold">Bonifico Bancario</span>
-                  <span className="text-xs text-muted-foreground mt-1">Sconto 2% extra</span>
-                </Label>
-                <Label htmlFor="postepay" className={`flex flex-col items-center justify-between rounded-xl border-2 p-4 hover:bg-secondary/50 cursor-pointer transition-all ${paymentMethod === 'postepay' ? 'border-primary bg-secondary/30' : 'border-muted'}`}>
-                  <RadioGroupItem value="postepay" id="postepay" className="sr-only" />
+              <div className="grid gap-4">
+                <div className="flex flex-col items-center justify-between rounded-xl border-2 p-4 border-primary bg-secondary/30">
                   <CreditCard className="mb-3 h-6 w-6" />
                   <span className="font-bold">Ricarica Postepay</span>
                   <span className="text-xs text-muted-foreground mt-1">Veloce e sicuro</span>
-                </Label>
-              </RadioGroup>
+                </div>
+              </div>
               
               <div className="mt-4 p-4 bg-yellow-50 text-yellow-800 text-sm rounded border border-yellow-200">
                 <strong>Nota:</strong> Il pagamento verrà effettuato manualmente dopo la conferma dell'ordine. Riceverai le coordinate via email.
