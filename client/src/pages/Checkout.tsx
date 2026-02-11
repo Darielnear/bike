@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -43,6 +44,9 @@ export default function Checkout() {
     return null;
   }
 
+  const [showPaymentInfo, setShowPaymentInfo] = useState(false);
+  const [orderConfirmed, setOrderConfirmed] = useState<any>(null);
+
   const onSubmit = (data: CheckoutForm) => {
     const orderData = {
       order: {
@@ -66,11 +70,48 @@ export default function Checkout() {
 
     createOrder.mutate(orderData, {
       onSuccess: (res) => {
+        setOrderConfirmed(res);
+        setShowPaymentInfo(true);
         clearCart();
-        setLocation(`/conferma-ordine?number=${res.orderNumber}&amount=${res.totalAmount}&method=${data.paymentMethod}`);
       }
     });
   };
+
+  if (showPaymentInfo && orderConfirmed) {
+    return (
+      <div className="container-padding max-w-2xl mx-auto py-24 text-center">
+        <div className="bg-green-50 border border-green-200 p-8 rounded-2xl mb-8">
+          <h1 className="text-3xl font-bold text-green-800 mb-4">Ordine Ricevuto!</h1>
+          <p className="text-green-700">Il tuo ordine #{orderConfirmed.orderNumber} è stato registrato con successo.</p>
+        </div>
+        
+        <div className="bg-white border border-border p-8 rounded-2xl shadow-sm text-left space-y-6">
+          <h2 className="text-xl font-bold border-b pb-4">Istruzioni di Pagamento</h2>
+          <p className="text-muted-foreground italic">Metodo di Pagamento: Ricarica PostePay / Bonifico su conto BBVA. Per completare l'acquisto, effettua il pagamento a:</p>
+          
+          <div className="space-y-3 font-mono text-sm bg-secondary/30 p-6 rounded-xl border border-border">
+            <p><strong>Intestatario:</strong> Cicli Volante</p>
+            <p><strong>IBAN:</strong> IT52 PO35 7601 6010 1000 8072 943</p>
+            <p><strong>BIC:</strong> BBVAITM2XXX</p>
+            <p><strong>Banca:</strong> BBVA</p>
+          </div>
+          
+          <div className="p-4 bg-primary/5 border border-primary/20 rounded-xl text-primary font-medium">
+            Importo da pagare: {formatCurrency(Number(orderConfirmed.totalAmount))}
+          </div>
+          
+          <p className="text-sm text-muted-foreground leading-relaxed">
+            Inserire il numero d'ordine <strong>#{orderConfirmed.orderNumber}</strong> come causale. 
+            La spedizione avverrà dopo la ricezione del pagamento.
+          </p>
+        </div>
+        
+        <Link href="/" className="inline-block mt-12 btn-primary">
+          Torna alla Home
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="container-padding max-w-4xl mx-auto py-12 md:py-24">

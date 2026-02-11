@@ -1,9 +1,7 @@
-[x] 1. Install the required packages
-[x] 2. Restart the workflow to see if the project is working
-[x] 3. Verify the project is working using the feedback tool
-[x] 4. Inform user the import is completed and they can start building, mark the import as completed using the complete_project_import tool
-[x] 5. Change header image and fix category previews
-[x] 6. Finalize project for Vercel deployment and external hosting
-[x] 7. Provision PostgreSQL database and push schema
-[x] 8. Configure workflow with webview output on port 5000
-[x] 9. Verify application loads correctly in browser
+[x] 1. Catalogue et Base de données (75 Produits) : Rangement IDs 1-15 (E-MTB), 16-35 (E-CITY), 36-50 (E-TREKKING), 51-75 (ACCESSORI).
+[x] 2. Descriptions italiennes expertes et détaillées (Moteur Bosch, Quad Lock, etc.).
+[x] 3. Images uniformisées avec object-fit: contain et fond neutre.
+[x] 4. Grille de produits : 12 par page.
+[x] 5. Paiement UNIQUE (PostePay/BBVA) avec affichage post-validation.
+[x] 6. Filtres par catégorie et navigation corrigés.
+[x] 7. Export statique (dist) : Note - l'application nécessite Node.js pour le backend, mais le frontend est buildé.

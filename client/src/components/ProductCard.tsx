@@ -32,7 +32,7 @@ export function ProductCard({ product }: ProductCardProps) {
       viewport={{ once: true }}
       className="group relative bg-white rounded-xl overflow-hidden border border-border/50 hover:shadow-xl hover:border-primary/20 transition-all duration-500"
     >
-      <Link href={`/prodotto/${product.slug}`} className="block relative aspect-[4/3] overflow-hidden bg-secondary/30">
+      <Link href={`/prodotto/${product.slug}`} className="block relative aspect-[4/3] overflow-hidden bg-white flex items-center justify-center p-4">
         {product.isBestseller && (
           <Badge className="absolute top-4 left-4 z-10 bg-primary hover:bg-primary text-white border-none shadow-lg">
             BESTSELLER
@@ -41,7 +41,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <img 
           src={product.mainImage} 
           alt={product.name}
-          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+          className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
         />
         
         {/* Quick Actions Overlay */}
