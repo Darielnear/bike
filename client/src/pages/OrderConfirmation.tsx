@@ -47,12 +47,12 @@ export default function OrderConfirmation() {
           <div className="space-y-4 bg-secondary/30 p-6 rounded-xl">
             <div className="flex justify-between items-center pb-2 border-b border-border">
               <span className="text-muted-foreground">Beneficiario</span>
-              <span className="font-bold">Cicli Volante Srl</span>
+              <span className="font-bold">Cicli Volante</span>
             </div>
-            <div className="flex justify-between items-center pb-2 border-b border-border group cursor-pointer" onClick={() => handleCopy("IT00X0000000000000000000000")}>
+            <div className="flex justify-between items-center pb-2 border-b border-border group cursor-pointer" onClick={() => handleCopy("IT52PO357601601010008072943")}>
               <span className="text-muted-foreground">IBAN</span>
               <div className="flex items-center gap-2">
-                <span className="font-mono font-bold">IT00 X 00000 00000 000000000000</span>
+                <span className="font-mono font-bold">IT52 PO35 7601 6010 1000 8072 943</span>
                 <Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
@@ -64,29 +64,25 @@ export default function OrderConfirmation() {
         ) : (
           <div className="space-y-4 bg-secondary/30 p-6 rounded-xl">
             <div className="flex justify-between items-center pb-2 border-b border-border">
-              <span className="text-muted-foreground">Intestatario</span>
-              <span className="font-bold">Mario Volante</span>
+              <span className="text-muted-foreground">Beneficiario</span>
+              <span className="font-bold">Cicli Volante</span>
             </div>
-            <div className="flex justify-between items-center pb-2 border-b border-border group cursor-pointer" onClick={() => handleCopy("4023600400001234")}>
-              <span className="text-muted-foreground">Carta N.</span>
+            <div className="flex justify-between items-center pb-2 border-b border-border group cursor-pointer" onClick={() => handleCopy("IT52PO357601601010008072943")}>
+              <span className="text-muted-foreground">IBAN</span>
               <div className="flex items-center gap-2">
-                <span className="font-mono font-bold">4023 6004 0000 1234</span>
+                <span className="font-mono font-bold">IT52 PO35 7601 6010 1000 8072 943</span>
                 <Copy className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
-            <div className="flex justify-between items-center pb-2 border-b border-border">
-              <span className="text-muted-foreground">Codice Fiscale</span>
-              <span className="font-mono font-bold">VLNMR080A01H501Z</span>
-            </div>
             <div className="flex justify-between items-center pt-2">
               <span className="text-muted-foreground">Causale</span>
-              <span className="font-bold">Ricarica per Ordine #{orderNumber}</span>
+              <span className="font-bold">Ordine #{orderNumber}</span>
             </div>
           </div>
         )}
 
         <p className="mt-6 text-sm text-center text-muted-foreground">
-          Una fattura HTML automatica è stata preparata e verrà inviata non appena il pagamento sarà convalidato.
+          La spedizione avverrà dopo la ricezione del pagamento. Spedizione sempre assicurata con BRT/SDA (24-48h).
           Invia la ricevuta a <span className="font-bold text-primary">pagamenti@ciclivolante.it</span> per accelerare la spedizione.
         </p>
       </div>

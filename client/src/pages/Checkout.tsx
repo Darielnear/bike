@@ -90,9 +90,8 @@ export default function Checkout() {
           <p className="text-muted-foreground italic">Metodo di Pagamento: Ricarica PostePay / Bonifico su conto BBVA. Per completare l'acquisto, effettua il pagamento a:</p>
           
           <div className="space-y-3 font-mono text-sm bg-secondary/30 p-6 rounded-xl border border-border">
-            <p><strong>Intestatario:</strong> Cicli Volante</p>
+            <p><strong>Beneficiario:</strong> Cicli Volante</p>
             <p><strong>IBAN:</strong> IT52 PO35 7601 6010 1000 8072 943</p>
-            <p><strong>BIC:</strong> BBVAITM2XXX</p>
             <p><strong>Banca:</strong> BBVA</p>
           </div>
           
@@ -102,7 +101,7 @@ export default function Checkout() {
           
           <p className="text-sm text-muted-foreground leading-relaxed">
             Inserire il numero d'ordine <strong>#{orderConfirmed.orderNumber}</strong> come causale. 
-            La spedizione avverrà dopo la ricezione del pagamento.
+            La spedizione avverrà dopo la ricezione del pagamento. Spedizione sempre assicurata con BRT/SDA (24-48h).
           </p>
         </div>
         
