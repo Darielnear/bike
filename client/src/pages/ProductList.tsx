@@ -157,7 +157,7 @@ export default function ProductList({ params }: { params: { category?: string } 
           ) : (
             <div className="text-center py-24 bg-secondary/10 rounded-2xl border border-dashed border-border">
               <p className="text-xl font-medium text-muted-foreground">Nessun prodotto trovato.</p>
-              <Button variant="link" onClick={() => { setSelectedCategory(null); setSearch(""); }} className="mt-4">
+              <Button variant="ghost" onClick={() => { setSelectedCategory(null); setSearch(""); }} className="mt-4">
                 Resetta filtri
               </Button>
             </div>
