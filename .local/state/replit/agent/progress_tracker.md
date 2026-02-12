@@ -5,3 +5,8 @@
 [x] 5. Paiement UNIQUE (PostePay/BBVA) avec affichage post-validation.
 [x] 6. Filtres par catégorie et navigation corrigés.
 [x] 7. Export statique (dist) : Note - l'application nécessite Node.js pour le backend, mais le frontend est buildé.
+[x] 8. Dependencies installed (npm packages, tsx, drizzle-orm, etc.).
+[x] 9. PostgreSQL database provisioned and schema pushed.
+[x] 10. Seed data loaded (75 products + admin user).
+[x] 11. Application workflow configured and running on port 5000.
+[x] 12. Frontend verified - CicliVolante e-bike shop displaying correctly.

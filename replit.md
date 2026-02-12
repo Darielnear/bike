@@ -1,10 +1,10 @@
 # CicliVolante - Italian E-Bike Store
 
 ## Overview
-CicliVolante is a premium Italian e-bike e-commerce website. The application features a product catalog with categories (E-MTB, E-City & Urban, Trekking & Gravel, Accessories), shopping cart, and an admin panel.
+CicliVolante is a premium Italian e-bike e-commerce website. The application features a product catalog with 75 products across categories (E-MTB, E-City & Urban, Trekking & Gravel, Accessories), shopping cart, and an admin panel.
 
 ## Recent Changes
-- 2026-02-11: Migrated to Replit environment, provisioned PostgreSQL database, configured workflow
+- 2026-02-12: Completed import to Replit environment, all dependencies installed, database provisioned and seeded, workflow running
 
 ## Architecture
 - **Frontend**: React 18 + Vite + TailwindCSS + shadcn/ui components
@@ -18,6 +18,7 @@ CicliVolante is a premium Italian e-bike e-commerce website. The application fea
 - `server/` - Express backend (routes, storage, db, vite dev server)
 - `shared/` - Shared schema and types (Drizzle + Zod)
 - `attached_assets/` - Static image assets
+- `img/` - Product images
 
 ## Running
 - Dev: `npm run dev` (starts Express + Vite on port 5000)
@@ -28,3 +29,5 @@ CicliVolante is a premium Italian e-bike e-commerce website. The application fea
 ## User Preferences
 - Italian language for storefront UI
 - E-bike / cycling product focus
+- 12 products per page grid layout
+- PostePay/BBVA payment methods
