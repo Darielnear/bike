@@ -88,12 +88,13 @@ export function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background pt-24 px-6 md:hidden flex flex-col gap-6"
+            className="fixed inset-0 z-40 bg-background pt-32 px-6 md:hidden flex flex-col gap-6"
           >
             <Link href="/prodotti" className="text-2xl font-display font-medium border-b border-border pb-4">Tutte le Bici</Link>
-            <Link href="/prodotti/urbane" className="text-2xl font-display font-medium border-b border-border pb-4">Urbane</Link>
-            <Link href="/prodotti/mountain" className="text-2xl font-display font-medium border-b border-border pb-4">Mountain</Link>
-            <Link href="/prodotti/pieghevoli" className="text-2xl font-display font-medium border-b border-border pb-4">Pieghevoli</Link>
+            <Link href="/prodotti/E-MTB" className="text-2xl font-display font-medium border-b border-border pb-4">E-MTB</Link>
+            <Link href="/prodotti/E-City & Urban" className="text-2xl font-display font-medium border-b border-border pb-4">E-City & Urban</Link>
+            <Link href="/prodotti/Trekking & Gravel" className="text-2xl font-display font-medium border-b border-border pb-4">Trekking & Gravel</Link>
+            <Link href="/prodotti/Accessori & Sicurezza" className="text-2xl font-display font-medium border-b border-border pb-4">Accessori</Link>
             <Link href="/traccia" className="text-sm font-bold uppercase tracking-widest text-muted-foreground mt-4">Traccia Ordine</Link>
           </motion.div>
         )}

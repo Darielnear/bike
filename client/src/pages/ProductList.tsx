@@ -36,7 +36,11 @@ export default function ProductList({ params }: { params: { category?: string } 
   ];
 
   const filteredProducts = products?.filter(product => {
-    if (selectedCategory && product.category !== selectedCategory) return false;
+    if (selectedCategory) {
+      const normalizedSelected = selectedCategory.toLowerCase().trim();
+      const normalizedProduct = product.category.toLowerCase().trim();
+      if (normalizedProduct !== normalizedSelected) return false;
+    }
     if (search && !product.name.toLowerCase().includes(search.toLowerCase())) return false;
     return true;
   });
