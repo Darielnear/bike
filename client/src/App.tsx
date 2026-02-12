@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from "wouter";
+import { Switch, Route, useLocation, Link } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -90,21 +90,21 @@ function Footer() {
         <div>
           <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Esplora</h4>
           <ul className="space-y-3 text-sm">
-            <li><a href="/prodotti/E-MTB" className="hover:text-white transition-colors">E-MTB</a></li>
-            <li><a href="/prodotti/E-City & Urban" className="hover:text-white transition-colors">E-City & Urban</a></li>
-            <li><a href="/prodotti/Trekking & Gravel" className="hover:text-white transition-colors">Trekking & Gravel</a></li>
-            <li><a href="/prodotti/Accessori & Sicurezza" className="hover:text-white transition-colors">Accessori & Sicurezza</a></li>
+            <li><Link href="/prodotti/E-MTB" className="hover:text-white transition-colors cursor-pointer">E-MTB</Link></li>
+            <li><Link href="/prodotti/E-City & Urban" className="hover:text-white transition-colors cursor-pointer">E-City & Urban</Link></li>
+            <li><Link href="/prodotti/Trekking & Gravel" className="hover:text-white transition-colors cursor-pointer">Trekking & Gravel</Link></li>
+            <li><Link href="/prodotti/Accessori & Sicurezza" className="hover:text-white transition-colors cursor-pointer">Accessori & Sicurezza</Link></li>
           </ul>
         </div>
 
         <div>
           <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Servizi e Supporto</h4>
           <ul className="space-y-3 text-sm">
-            <li><a href="/traccia" className="hover:text-white transition-colors">Traccia il tuo Ordine</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Centro Assistenza</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Garanzia Premium</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Spedizioni e Resi</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
+            <li><Link href="/traccia" className="hover:text-white transition-colors cursor-pointer">Traccia il tuo Ordine</Link></li>
+            <li><Link href="#" className="hover:text-white transition-colors cursor-pointer">Centro Assistenza</Link></li>
+            <li><Link href="#" className="hover:text-white transition-colors cursor-pointer">Garanzia Premium</Link></li>
+            <li><Link href="#" className="hover:text-white transition-colors cursor-pointer">Spedizioni e Resi</Link></li>
+            <li><Link href="#" className="hover:text-white transition-colors cursor-pointer">FAQ</Link></li>
           </ul>
         </div>
 
@@ -124,7 +124,6 @@ function Footer() {
           <div className="mt-8">
             <h4 className="font-bold text-white mb-4 uppercase tracking-widest text-[10px]">Pagamenti Sicuri</h4>
             <div className="flex gap-3 opacity-50">
-              <div className="px-2 py-1 border border-white/20 rounded text-[9px] font-bold">BONIFICO</div>
               <div className="px-2 py-1 border border-white/20 rounded text-[9px] font-bold">POSTEPAY</div>
             </div>
           </div>

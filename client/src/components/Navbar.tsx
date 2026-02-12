@@ -59,7 +59,7 @@ export function Navbar() {
             </div>
 
             {/* Actions */}
-            <div className="flex items-center gap-4 z-50">
+            <div className="flex items-center gap-2 md:gap-4 z-50">
               <Link href="/carrello" className="relative p-2 hover:bg-secondary rounded-full transition-colors group">
                 <ShoppingBag className="w-5 h-5 text-foreground group-hover:text-primary transition-colors" />
                 {cartItemsCount > 0 && (
@@ -72,7 +72,8 @@ export function Navbar() {
               {/* Mobile Menu Toggle */}
               <button 
                 onClick={() => setIsOpen(!isOpen)} 
-                className="md:hidden p-2 hover:bg-secondary rounded-full transition-colors"
+                className="md:hidden p-2 hover:bg-secondary rounded-full transition-colors flex items-center justify-center"
+                aria-label="Toggle menu"
               >
                 {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -88,14 +89,16 @@ export function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed inset-0 z-40 bg-background pt-32 px-6 md:hidden flex flex-col gap-6"
+            className="fixed inset-0 z-[60] bg-background px-6 py-24 md:hidden flex flex-col gap-6 overflow-y-auto"
           >
-            <Link href="/prodotti" className="text-2xl font-display font-medium border-b border-border pb-4">Tutte le Bici</Link>
-            <Link href="/prodotti/E-MTB" className="text-2xl font-display font-medium border-b border-border pb-4">E-MTB</Link>
-            <Link href="/prodotti/E-City & Urban" className="text-2xl font-display font-medium border-b border-border pb-4">E-City & Urban</Link>
-            <Link href="/prodotti/Trekking & Gravel" className="text-2xl font-display font-medium border-b border-border pb-4">Trekking & Gravel</Link>
-            <Link href="/prodotti/Accessori & Sicurezza" className="text-2xl font-display font-medium border-b border-border pb-4">Accessori</Link>
-            <Link href="/traccia" className="text-sm font-bold uppercase tracking-widest text-muted-foreground mt-4">Traccia Ordine</Link>
+            <div className="flex flex-col gap-4">
+              <Link href="/prodotti" className="text-2xl font-display font-medium border-b border-border pb-4">Tutte le Bici</Link>
+              <Link href="/prodotti/E-MTB" className="text-2xl font-display font-medium border-b border-border pb-4">E-MTB</Link>
+              <Link href="/prodotti/E-City & Urban" className="text-2xl font-display font-medium border-b border-border pb-4">E-City & Urban</Link>
+              <Link href="/prodotti/Trekking & Gravel" className="text-2xl font-display font-medium border-b border-border pb-4">Trekking & Gravel</Link>
+              <Link href="/prodotti/Accessori & Sicurezza" className="text-2xl font-display font-medium border-b border-border pb-4">Accessori</Link>
+              <Link href="/traccia" className="text-sm font-bold uppercase tracking-widest text-muted-foreground mt-4">Traccia Ordine</Link>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

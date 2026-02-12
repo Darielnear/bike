@@ -1,6 +1,6 @@
 import { useProducts } from "@/hooks/use-products";
 import { ProductCard } from "@/components/ProductCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { 
   ChevronLeft, 
@@ -26,6 +26,11 @@ export default function ProductList({ params }: { params: { category?: string } 
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(params.category ? decodeURIComponent(params.category) : null);
   
+  useEffect(() => {
+    setSelectedCategory(params.category ? decodeURIComponent(params.category) : null);
+    setPage(1);
+  }, [params.category]);
+
   const { data: products, isLoading } = useProducts();
 
   const categories = [
