@@ -7,6 +7,19 @@ import { Navbar } from "@/components/Navbar";
 import { useEffect } from "react";
 
 // Pages
+import Home from "@/pages/Home";
+import ProductList from "@/pages/ProductList";
+import ProductDetail from "@/pages/ProductDetail";
+import Cart from "@/pages/Cart";
+import Checkout from "@/pages/Checkout";
+import OrderConfirmation from "@/pages/OrderConfirmation";
+import OrderTracking from "@/pages/OrderTracking";
+import Support from "@/pages/Support";
+import Warranty from "@/pages/Warranty";
+import Shipping from "@/pages/Shipping";
+import FAQ from "@/pages/FAQ";
+import Admin from "@/pages/Admin";
+import NotFound from "@/pages/not-found";
 
 // Scroll to top on route change
 function ScrollToTop() {
@@ -40,6 +53,14 @@ function Router() {
                 <Route path="/prodotti/:category" component={ProductList} />
                 <Route path="/prodotto/:slug" component={ProductDetail} />
                 <Route path="/carrello" component={Cart} />
+                <Route path="/checkout" component={Checkout} />
+                <Route path="/conferma-ordine" component={OrderConfirmation} />
+                <Route path="/traccia" component={OrderTracking} />
+                <Route path="/assistenza" component={Support} />
+                <Route path="/garanzia" component={Warranty} />
+                <Route path="/spedizioni" component={Shipping} />
+                <Route path="/faq" component={FAQ} />
+                <Route component={NotFound} />
               </Switch>
             </main>
             <Footer />
@@ -84,6 +105,16 @@ function Footer() {
           </ul>
         </div>
 
+        <div>
+          <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Servizi e Supporto</h4>
+          <ul className="space-y-3 text-sm">
+            <li><Link href="/traccia" className="hover:text-white transition-colors cursor-pointer">Traccia il tuo Ordine</Link></li>
+            <li><Link href="/assistenza" className="hover:text-white transition-colors cursor-pointer">Centro Assistenza</Link></li>
+            <li><Link href="/garanzia" className="hover:text-white transition-colors cursor-pointer">Garanzia Premium</Link></li>
+            <li><Link href="/spedizioni" className="hover:text-white transition-colors cursor-pointer">Spedizioni e Resi</Link></li>
+            <li><Link href="/faq" className="hover:text-white transition-colors cursor-pointer">FAQ</Link></li>
+          </ul>
+        </div>
 
         <div>
           <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-[10px]">Rimani Aggiornato</h4>
