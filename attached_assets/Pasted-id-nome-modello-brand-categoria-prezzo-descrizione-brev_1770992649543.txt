@@ -1,0 +1,76 @@
+id,nome_modello,brand,categoria,prezzo,descrizione_breve
+1,Specialized Levo Gen 3 Alloy,Specialized,E-MTB,5500,Potenza e agilità in alluminio. Il punto di riferimento per ogni trail.
+2,Specialized Turbo Kenevo SL,Specialized,E-MTB,7200,Leggerezza estrema e feeling naturale. Una enduro nata per scendere.
+3,Specialized Rockhopper,Specialized,MTB,950,Versatilità e robustezza per le prime avventure off-road.
+4,Orbea Wild FS,Orbea,E-MTB,8400,Geometria racing e potenza pura per dominare i sentieri tecnici.
+5,Orbea Rise M20,Orbea,E-MTB,6900,Filosofia Less is more. Una E-MTB leggera e reattiva.
+6,Fantic XTF 1.5 630Wh,Fantic,E-MTB,4800,Design italiano e grande autonomia per lunghe giornate in montagna.
+7,Fantic XTF 1.5 Sport,Fantic,E-MTB,5200,Reattività e controllo superiore per prestazioni sportive.
+8,Trek Rail 9.8 XT Gen 4,Trek,E-MTB,9100,Prestazioni da enduro con motore Bosch CX e precisione in discesa.
+9,Canyon Spectral:ONfly CF 9,Canyon,E-MTB,7500,Leggera e scattante. Il perfetto equilibrio tra peso e potenza.
+10,Santa Cruz Heckler 9,Santa Cruz,E-MTB,10200,L'icona del trail si elettrifica con sospensioni VPP senza pari.
+11,Cannondale Moterra Neo 4,Cannondale,E-MTB,5400,Baricentro basso e agilità sorprendente su ogni terreno.
+12,Giant Reign E+1 Mx Pro,Giant,E-MTB,6800,Setup Mullet per la massima trazione. Una bestia da enduro.
+13,Scott Ransom eRIDE 910,Scott,E-MTB,7900,Escursione generosa e anima gravity per sfide estreme.
+14,Haibike Xduro AllMtn 3.0,Haibike,E-MTB,4600,Affidabilità tedesca per esplorazioni infinite fuori strada.
+15,Mondraker Chaser 29,Mondraker,E-MTB,5100,Forward Geometry per una stabilità estrema nel trail.
+16,Cannondale Adventure Neo 4,Cannondale,E-City,3200,Comfort assoluto per riscoprire il piacere urbano.
+17,Specialized Turbo Vado 5,Specialized,E-City,4500,Tecnologia intelligente per il pendolare più esigente.
+18,Specialized Turbo Como 3.0,Specialized,E-City,3400,Eleganza e relax in ogni spostamento cittadino.
+19,Gazelle Ultimate C5,Gazelle,E-City,3800,Raffinatezza olandese con cambio a cinghia silenzioso.
+20,Gazelle Heavyduty NI C5,Gazelle,E-City,3100,Robusta e iconica per trasportare tutto con stile.
+21,G-Force T42 Electric,G-Force,E-City,1800,Pieghevole e potente. La soluzione perfetta per la città.
+22,G-Force S21,G-Force,E-City,2100,Design futuristico e compattezza per la mobilità urbana.
+23,Evelo Omega Electric,Evelo,E-City,4200,Trasmissione automatica per una guida fluida.
+24,Evelo Aurora Limited,Evelo,E-City,4500,Comfort premium per viaggi urbani senza fatica.
+25,Brompton Electric,Brompton,E-City,3600,"La pieghevole migliore al mondo, ora più veloce."
+26,Riese & Müller Nevo 4,Riese & Müller,E-City,5900,L'ammiraglia delle city-bike. Tecnologia tedesca superiore.
+27,Kalkhoff Image 5 Advance,Kalkhoff,E-City,4200,Integrazione perfetta per il commuting quotidiano.
+28,Moustache Lundi 27.3,Moustache,E-City,3500,Design unico e manubrio iconico per uno stile inconfondibile.
+29,Tenways CGO600 Pro,Tenways,E-City,1800,Minimalista e leggera con trasmissione a cinghia.
+30,Cowboy Cross,Cowboy,E-City,3500,La smart-bike all-road dal design pulitissimo.
+31,VanMoof S5,VanMoof,E-City,3300,Tecnologia invisibile e sicurezza integrata.
+32,Rad Power RadCity 5,Rad Power,E-City,1900,Versatilità imbattibile per ogni pendenza urbana.
+33,Tern GSD S10,Tern,Cargo,5600,Capacità di carico estrema in un formato compatto.
+34,Veloretti Electric Ace,Veloretti,E-City,2900,Stile rétro e tecnologia moderna sulle strade di città.
+35,Honbike U4,Honbike,E-City,1700,Design aeronautico senza catena. Manutenzione zero.
+36,Trek Allant+ 8 Stagger,Trek,E-City,4600,Potenza Bosch e design raffinato per sostituire l'auto.
+37,Cube Kathmandu Hybrid,Cube,Trekking,3900,Robusta e affidabile per il cicloturismo d'avventura.
+38,Scott Sub Active eRide 20,Scott,E-City,2800,Praticità e comfort Scott per la vita di tutti i giorni.
+39,Giant Anytour E+ 0,Giant,Trekking,4100,Esplorazione senza limiti con guida fluida e silenziosa.
+40,Canyon Pathlite:ON 5 SUV,Canyon,Trekking,3200,La versatilità di un SUV su due ruote.
+41,Lapierre Overvolt Explorer,Lapierre,Trekking,3100,"Pronta a tout, dall'asfalto ai sentieri di campagna."
+42,Winora Yucatan 10 Wave,Winora,Trekking,3000,Ingresso basso e anima sportiva per ogni viaggio.
+43,Flyer Gotour6 3.10,Flyer,E-City,4000,Qualità svizzera e finiture premium in ogni dettaglio.
+44,Rad Power Bikes RadRover 6,Rad Power,E-Fat Bike,2100,"Divertimento infinito su sabbia, neve o fango."
+45,Aventon Aventure.2,Aventon,E-Fat Bike,2000,Potenza selvaggia per non fermarsi mai.
+46,Himiway Zebra D5 ST,Himiway,E-Fat Bike,2200,Autonomia record e design robusto per ogni percorso.
+47,Lectric XP 3.0,Lectric,E-Folding,1300,Potenza e portabilità au meilleur prix.
+48,Juiced CrossCurrent X,Juiced,E-City,2500,Velocità e autonomia per chi vuole arrivare primo.
+49,Ride1UP 700 Series ST,Ride1UP,E-City,1900,Performance superiori e finiture eleganti.
+50,Specialized Turbo Tero X,Specialized,SUV,5200,Sospensioni totali e anima esploratrice per ogni terreno.
+51,Specialized Mode MIPS,Specialized,Accessori,120,Design urbano pulito e massima protezione MIPS.
+52,Sena R1,Sena,Accessori,160,Comunicazione Bluetooth e altoparlanti integrati.
+53,Abus Bordo 6000C,Abus,Accessori,110,Sicurezza tedesca pieghevole e compatta.
+54,Kryptonite New York Lock,Kryptonite,Accessori,95,Resisenza leggendaria per le tue soste urbane.
+55,Ortlieb Back-Roller Classic,Ortlieb,Accessori,150,Borse impermeabili iconiche per ogni viaggio.
+56,ROCKBROS Borsa,ROCKBROS,Accessori,35,Spazio extra impermeabile per i tuoi oggetti.
+57,Garmin Varia RCT715,Garmin,Tech,399,Radar con telecamera per la tua sicurezza posteriore.
+58,Knog Blinder 1300,Knog,Accessori,100,Potenza luminosa estrema e design minimalista.
+59,Wahoo ELEMNT BOLT,Wahoo,Tech,280,Il computer da bici più aerodinamico e intuitivo.
+60,Garmin Edge 530,Garmin,Tech,260,Monitoraggio delle prestazioni e navigazione avanzata.
+61,Xiaomi Portable Electric,Xiaomi,Tech,60,Gonfiaggio elettrico rapido e preciso in tasca.
+62,Lezyne Trigger Drive,Lezyne,Accessori,25,Erogatore di CO2 compatto per riparazioni fulminee.
+63,Muc-Off Clean & Protect,Muc-Off,Maintenance,45,Tutto il necessario per la cura della tua bici.
+64,Finish Line Wet Lube,Finish Line,Maintenance,12,Lubrificante professionale per condizioni estreme.
+65,Quad Lock,Quad Lock,Accessori,70,Il sistema di montaggio smartphone più sicuro.
+66,Giro Rodeo,Giro,Accessori,45,Protezione e comfort per i piccoli ciclisti.
+67,Shimano PD-EH500 SPD,Shimano,Accessori,85,Pedali versatili a doppia funzione.
+68,Brooks B17 Carved,Brooks,Accessori,145,L'icona del comfort in pelle artigianale.
+69,Specchietto B&M,B&M,Accessori,30,Visione posteriore cristallina per la città.
+70,Ursus Wave,Ursus,Accessori,20,Il cavalletto più stabile per ogni tipo di bici.
+71,Thule Tour Rack,Thule,Accessori,110,Portapacchi universale per quasi tutte le bici.
+72,Burley Bee,Burley,Accessori,350,Il rimorchio per bambini più sicuro e leggero.
+73,Evoc FR Trail Unlimited,Evoc,Accessori,220,Zaino tecnico con protezione dorsale integrata.
+74,Five Ten Freerider Pro,Adidas,Accessori,150,Il grip definitivo sui pedali flat per l Enduro.
+75,Oakley Jawbreaker,Oakley,Accessori,210,Design sportivo estremo e visione ottimizzata.
